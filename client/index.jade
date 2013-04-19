@@ -1,13 +1,34 @@
 !!! 5
-html(lang="en")
+html(lang="en", ng-app="Shoppinglist")
   head
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(charset="utf-8")
-    title
+    title Ostoslista
     meta(name="viewport", content="width=device-width", initial-scale="1.0")
     link(rel="stylesheet", href="//temporary-siili-fonts.louneva.jp/fonts.css")
     link(rel="stylesheet", href="assets/screen.css")
     script(src="assets/angular.js")
     script(src="app.js")
 
-  body
+  body(ng-controller="ShoppinglistCtrl")
+    header
+      h1 Ostoslista
+
+    article
+      form(ng-submit="createItem(newItem)")
+        .input-wrapper
+          input.add-item(type="text", ng-model="newItem.text", required)
+          button.action +
+      ul
+        li(ng-repeat="item in items | orderBy:sortProperty")
+          input(type="checkbox", ng-model="item.bought")
+          span
+            strong {{ item.title }}
+            span.amount(ng-hide="!item.amount || !item.unit")
+              strong {{ item.amount }}
+              span.unit {{ item.unit }}
+          button.delete(ng-click="removeItem(item)") x
+
+      select(ng-model="sortProperty", ng-options="option for option in sortOptions")
+
+    footer Siili © 2013
