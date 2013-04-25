@@ -12,6 +12,8 @@
 	"dependencies": {
 		"express"  : "latest",
 		"jade"     : "latest",
+		"stylus"   : "latest",
+		"nib"      : "latest",
 		"mongoose" : "latest"
 	}
 }
