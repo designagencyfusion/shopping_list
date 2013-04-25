@@ -12,8 +12,8 @@ app.configure(function() {
 	app.use(express['static']('client'));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
-	// app.use(express.logger('dev'));
-	// mongoose.set('debug', true);
+	app.use(express.logger('dev'));
+	mongoose.set('debug', true);
 });
 
 require('./routes').init(app);
