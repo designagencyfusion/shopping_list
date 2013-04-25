@@ -12,7 +12,7 @@ js.root = 'scripts';
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 4000);
-	app.set('views', 'client');
+	app.set('views', 'client/views');
 	app.set('view engine', 'jade');
 	app.locals.pretty = true;
 	app.use(express['static']('client'));

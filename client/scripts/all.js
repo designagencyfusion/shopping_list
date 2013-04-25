@@ -1,2 +1,2 @@
-//= require ../app/app
-//= require_tree ../app
+//= require app/app
+//= require_tree app
