@@ -7,7 +7,7 @@
 		"npm": "1.2.x"
 	},
 	"scripts": {
-		"start" : "node server/app.js"
+		"start" : "supervisor --watch server server/app.js"
 	},
 	"dependencies": {
 		"express"  : "latest",
