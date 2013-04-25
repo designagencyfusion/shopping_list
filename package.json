@@ -6,8 +6,12 @@
 		"node": "0.10.x",
 		"npm": "1.2.x"
 	},
+	"scripts": {
+		"start" : "node server/app.js"
+	},
 	"dependencies": {
-		"express" : "latest",
-		"jade"    : "latest"
+		"express"  : "latest",
+		"jade"     : "latest",
+		"mongoose" : "latest"
 	}
 }

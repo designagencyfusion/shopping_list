@@ -1,6 +1,7 @@
 var express  = require('express');
 var http     = require('http');
-var fs       = require('fs');
+var mongoose = require('mongoose');
+var db       = mongoose.connect('mongodb://localhost:27017/shopping_list');
 var app      = express();
 
 app.configure(function() {
@@ -10,16 +11,12 @@ app.configure(function() {
 	app.locals.pretty = true;
 	app.use(express['static']('client'));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+
+	// app.use(express.logger('dev'));
+	// mongoose.set('debug', true);
 });
 
-app.get('*', function(req, res) {
-	var path = req.params[0].replace(/^\//, '').replace(/\.html$/, '.jade') || 'index.jade';
-	if (fs.existsSync(app.get('views') + '/' + path)) {
-		res.render(path);
-	} else {
-		res.send(404);
-	}
-});
+require('./routes').init(app);
 
 http.createServer(app).listen(app.get('port'), function() {
 	return console.log('Express server listening on port ' + app.get('port'));
