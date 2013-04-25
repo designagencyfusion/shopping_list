@@ -10,10 +10,11 @@
 		"start" : "supervisor --watch server server/app.js"
 	},
 	"dependencies": {
-		"express"  : "latest",
-		"jade"     : "latest",
-		"stylus"   : "latest",
-		"nib"      : "latest",
-		"mongoose" : "latest"
+		"express"        : "latest",
+		"connect-assets" : "latest",
+		"jade"           : "latest",
+		"stylus"         : "latest",
+		"nib"            : "latest",
+		"mongoose"       : "latest"
 	}
 }
