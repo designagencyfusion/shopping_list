@@ -7,8 +7,9 @@ html(lang="en", ng-app="Shoppinglist")
     meta(name="viewport", content="width=device-width", initial-scale="1.0")
     link(rel="stylesheet", href="//temporary-siili-fonts.louneva.jp/fonts.css")
     != css('screen')
-    != js('vendor')
-    != js('all')
+    script(src="/scripts/vendor/angular.js")
+    script(src="/app.js")
+    script(src="/scripts/controllers.js")
 
   body
     header

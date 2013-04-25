@@ -8,7 +8,6 @@ var app      = express();
 app.use(assets({ src: 'client' }));
 
 css.root = 'styles';
-js.root = 'scripts';
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 4000);

@@ -7,7 +7,7 @@ article(ng-controller="ShoppinglistCtrl")
     li(ng-repeat="item in items | orderBy:sortProperty")
       input(type="checkbox", ng-model="item.bought")
       span
-        strong {{ item.title }}
+        strong {{ item.title }}&nbsp;
         span.amount(ng-hide="!item.amount || !item.unit")
           strong {{ item.amount }}
           span.unit {{ item.unit }}
