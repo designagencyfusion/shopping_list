@@ -8,3 +8,25 @@ orange               = rgb(255, 136, 060)
 cyan                 = rgb( 38, 165, 170)
 blue                 = rgb(000, 077, 108)
 red                  = rgb(200, 010, 010)
+
+
+// Default margins
+default-margin      = .5em
+default-padding     = .25em
+
+
+// Display width breakpoints
+display-mobile              =  480px
+display-mobile-horizontal   =  640px
+display-tablet              =  768px
+display-tablet-horizontal   = 1024px
+
+// Simple queries
+mobile-min                = "all and (min-width: " + display-mobile + ")"
+mobile-max                = "all and (max-width: " + (display-mobile - 1px) + ")"
+mobile-horizontal-min     = "all and (min-width: " + display-mobile-horizontal + ")"
+mobile-horizontal-max     = "all and (max-width: " + (display-mobile-horizontal - 1px) + ")"
+tablet-min                = "all and (min-width: " + display-tablet + ")"
+tablet-max                = "all and (max-width: " + (display-tablet - 1px) + ")"
+tablet-horizontal-min     = "all and (min-width: " + display-tablet-horizontal + ")"
+tablet-horizontal-max     = "all and (max-width: " + (display-tablet-horizontal - 1px) + ")"
