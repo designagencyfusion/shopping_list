@@ -2,7 +2,7 @@ var express  = require('express');
 var http     = require('http');
 var assets   = require('connect-assets');
 var mongoose = require('mongoose');
-var db       = mongoose.connect('mongodb://localhost:27017/shopping_list');
+// var db       = mongoose.connect('mongodb://localhost:27017/shopping_list');
 var app      = express();
 
 app.use(assets({ src: 'client' }));
@@ -19,7 +19,7 @@ app.configure(function() {
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 	app.use(express.logger('dev'));
-	mongoose.set('debug', true);
+	// mongoose.set('debug', true);
 });
 
 require('./routes').init(app);
