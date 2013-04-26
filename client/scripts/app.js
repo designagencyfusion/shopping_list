@@ -1,1 +1,1 @@
-window.App = angular.module('Shoppinglist', []);
+window.App = angular.module('Shoppinglist', ['ngResource']);

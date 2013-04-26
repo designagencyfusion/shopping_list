@@ -1,7 +1,7 @@
 article(ng-controller="ShoppinglistCtrl")
-  form(ng-submit="createItem(newItem)")
+  form(ng-submit="createItem(inputString)")
     .input-wrapper
-      input.add-item(type="text", ng-model="newItem.text", required)
+      input.add-item(type="text", ng-model="inputString", required)
       button.action +
   ul
     li(ng-repeat="item in items | orderBy:sortProperty")

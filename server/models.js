@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 
 var itemSchema = mongoose.Schema({
-	foo: Boolean
+	title:  String,
+	amount: Number,
+	unit:   String,
+	bought: Boolean
 });
 
 module.exports = {
