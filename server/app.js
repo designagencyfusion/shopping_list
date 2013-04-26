@@ -13,6 +13,7 @@ app.configure(function() {
 	app.set('port', process.env.PORT || 4000);
 	app.set('views', 'client/views');
 	app.set('view engine', 'jade');
+	app.use(express.bodyParser());
 	app.locals.pretty = true;
 	app.use(express['static']('client'));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
