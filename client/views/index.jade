@@ -15,7 +15,10 @@ html(lang="en", ng-app="Shoppinglist")
   body
     header
       h1 Ostoslista
-          
-    include shopping_list
+
+    //- include shopping_list
+    form(method="post", action="/api/items", target="_blank")
+      input(type="text", name="foo")
+      button Submit
 
     footer Siili © 2013

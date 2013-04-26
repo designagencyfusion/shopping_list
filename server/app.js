@@ -2,6 +2,7 @@ var express  = require('express');
 var http     = require('http');
 var assets   = require('connect-assets');
 var mongoose = require('mongoose');
+var db       = mongoose.connect('mongodb://localhost:27017/shopping_list');
 var app      = express();
 
 app.use(assets({ src: 'client' }));
@@ -16,6 +17,7 @@ app.configure(function() {
 	app.locals.pretty = true;
 	app.use(express['static']('client'));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+	mongoose.set('debug', true);
 
 	app.use(express.logger('dev'));
 });
