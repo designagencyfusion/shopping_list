@@ -1,7 +1,9 @@
-App.controller('ShoppinglistCtrl',
-	function($scope, $resource) {
+App.factory('Item', function($resource) {
+	return $resource('/api/items/:id', { id: '@_id' }, { update: { method: 'PUT' } });
+});
 
-		var Item = $resource('/api/items');
+App.controller('ShoppinglistCtrl',
+	function($scope, Item) {
 
 		$scope.items = Item.query();
 
@@ -31,10 +33,17 @@ App.controller('ShoppinglistCtrl',
 
 			$scope.inputString = '';
 		};
+		
+		$scope.updateItem = function(item) {
+			item.$update(function(item) {
+				console.log('item updated', item);
+			});
+		};
 
 		$scope.removeItem = function(item) {
-			
-			$scope.items.splice($scope.items.indexOf(item), 1);
+			item.$remove(function() {
+				$scope.items.splice($scope.items.indexOf(item), 1);
+			});
 		};
 
 	}

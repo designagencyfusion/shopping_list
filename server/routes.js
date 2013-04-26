@@ -35,6 +35,7 @@ exports.init = function(app) {
 	});
 
 	app.put('/api/items/:id', function(req, res) {
+		delete req.body._id;
 		Item.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, item) {
 			if (err) {
 				res.send(418, err);

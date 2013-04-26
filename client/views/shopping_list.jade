@@ -5,7 +5,7 @@ article(ng-controller="ShoppinglistCtrl")
       button.action +
   ul
     li(ng-repeat="item in items | orderBy:sortProperty")
-      input(type="checkbox", ng-model="item.bought")
+      input(type="checkbox", ng-model="item.bought", ng-click="updateItem(item)")
       span
         strong {{ item.title }}&nbsp;
         span.amount(ng-hide="!item.amount || !item.unit")
