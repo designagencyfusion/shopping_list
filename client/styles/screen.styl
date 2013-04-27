@@ -5,5 +5,110 @@ reset-html5()
 
 @import _base
 @import _layout
-@import _input
+
+@import _inputs
+@import _buttons
+
+#create-item
+  position relative
+  margin-bottom default-margin
+  input
+    width 100%
+    margin 0
+    padding-right 1.5em
+    font-size 1.5em
+    @media mobile-horizontal-max
+      font-size 1.25em
+  button
+    absolute top right
+    bottom 0
+    box-sizing border-box
+    margin 0
+    width 1.7em
+    padding .25em
+    font-weight bold
+    @media mobile-horizontal-max
+      font-size 1.25em
+
+#list
+  background cream
+  select
+    margin 0
+    width 100%
+  ul
+    margin 0
+    padding 0
+    list-style none
+    li
+      position relative
+      margin 0
+      padding default-padding 0
+      font-family "Proxima"
+      cursor pointer
+      border-top 1px solid light-cream
+      &:hover
+        background white
+        input:after
+          color lighten(cream, 10)
+        input:checked:after
+          color light-turquoise
+        a.delete
+          color light-red
+
+      input
+        -khtml-appearance none
+        -webkit-appearance none
+        display inline-block
+        position relative
+        width 2em
+        height 2em
+        margin 0 default-margin 0 default-padding
+        vertical-align middle
+        font-size 1em
+        font-weight bold
+        cursor pointer
+        &:after
+          display block
+          absolute top .15em left .15em
+          width 1em
+          height 1em
+          content "✓"
+          font-size 1.5em
+          line-height 1em
+          color transparent
+        &:checked:after
+          color white
+        &:hover:after
+          color cream
+        &:checked:hover:after
+          color turquoise
+
+      & > span
+        absolute left 3em top default-margin
+        right 3.5em
+        padding-right 5em
+        overflow ellipsis
+        span.amount
+          absolute right 0 top 0
+          color gray
+          strong
+            color black
+            padding-right (default-padding / 2)
+
+      a.delete
+        absolute top right
+        bottom 0
+        box-sizing border-box
+        display block
+        padding .5em .75em
+        text-decoration none
+        color light-cream
+        font-size 1.5em
+        line-height 1em
+        text-align center
+        &:hover
+          background light-red
+          color white
+        &:active
+          background darken(light-red, 10)
 

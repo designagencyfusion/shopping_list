@@ -53,5 +53,11 @@ App.controller('ShoppinglistCtrl',
 			});
 		};
 
+		$scope.toggleBought = function(item, e) {
+			if (e.target.nodeName == 'INPUT') return;
+			item.bought = !item.bought;
+			$scope.updateItem(item);
+		};
+
 	}
 );

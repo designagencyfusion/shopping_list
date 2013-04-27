@@ -14,8 +14,8 @@ very-light-gray       = rgb(203, 203, 203)
 extremely-light-gray  = rgb(243, 243, 243)
 
 // Default margins
-default-margin      = .5em
-default-padding     = .25em
+default-margin      = 1em
+default-padding     = .5em
 
 // Display width breakpoints
 display-mobile              =  480px
@@ -32,3 +32,13 @@ tablet-min                  = "all and (min-width: " + display-tablet + ")"
 tablet-max                  = "all and (max-width: " + (display-tablet - 1px) + ")"
 tablet-horizontal-min       = "all and (min-width: " + display-tablet-horizontal + ")"
 tablet-horizontal-max       = "all and (max-width: " + (display-tablet-horizontal - 1px) + ")"
+
+// Mixins
+button-background(bg-color)
+  background: bg-color
+
+  &:hover:not([disabled]):not(.disabled)
+    background linear-gradient(top, lighten(bg-color, 10), bg-color)
+
+  &:active:not([disabled]):not(.disabled)
+    background linear-gradient(top, darken(bg-color, 10), darken(bg-color, 5))
