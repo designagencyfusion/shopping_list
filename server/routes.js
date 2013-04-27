@@ -7,7 +7,7 @@ exports.init = function(app) {
 	app.get('/api/items', function(req, res) {
 		Item.find({}, function(err, items) {
 			if (err) {
-				res.send(418, err);
+				res.send(422, err);
 			} else {
 				res.json(items);
 			}
@@ -17,7 +17,7 @@ exports.init = function(app) {
 	app.get('/api/items/:id', function(req, res) {
 		Item.findOne({ _id: req.params.id }, function(err, item) {
 			if (err) {
-				res.send(418, err);
+				res.send(422, err);
 			} else {
 				res.json(item);
 			}
@@ -27,7 +27,7 @@ exports.init = function(app) {
 	app.post('/api/items', function(req, res) {
 		Item.create(req.body, function(err, item) {
 			if (err) {
-				res.send(418, err);
+				res.send(422, err);
 			} else {
 				res.json(item);
 			}
@@ -38,7 +38,7 @@ exports.init = function(app) {
 		delete req.body._id;
 		Item.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, item) {
 			if (err) {
-				res.send(418, err);
+				res.send(422, err);
 			} else {
 				res.json(item);
 			}
@@ -48,7 +48,7 @@ exports.init = function(app) {
 	app['delete']('/api/items/:id', function(req, res) {
 		Item.remove({ _id: req.params.id }, function(err, item) {
 			if (err) {
-				res.send(418, err);
+				res.send(422, err);
 			} else {
 				res.json();
 			}
