@@ -46,14 +46,6 @@ reset-html5()
       font-family "Proxima"
       cursor pointer
       border-top 1px solid light-cream
-      &:hover
-        background white
-        input:after
-          color lighten(cream, 10)
-        input:checked:after
-          color light-turquoise
-        a.delete
-          color light-red
 
       input
         -khtml-appearance none
@@ -80,10 +72,6 @@ reset-html5()
           color transparent
         &:checked:after
           color white
-        &:hover:after
-          color cream
-        &:checked:hover:after
-          color turquoise
 
       & > span
         absolute left 3em top default-margin
@@ -108,9 +96,20 @@ reset-html5()
         font-size 1.5em
         line-height 1em
         text-align center
-        &:hover
-          background light-red
-          color white
         &:active
           background darken(light-red, 10)
 
+body:not(.touch)
+  #list ul li:hover
+    background white
+    input:after
+      color lighten(cream, 10)
+    input:checked:after
+      color light-turquoise
+    a.delete
+      color light-red
+    input:checked:hover:after
+      color turquoise
+    a.delete:hover
+      background light-red
+      color white
