@@ -15,7 +15,7 @@ article(ng-controller="ShoppinglistCtrl")
   #list
     select(ng-model="sortProperty", ng-options="option for option in sortOptions")
     ul
-      li(ng-repeat="item in items | orderBy:sortProperty", ng-click="toggleBought(item, $event)")
+      li(ng-repeat="item in items | orderBy:sortProperty", ng-click="toggleBought(item, $event)", title="{{ item.title }} - {{ item.amount }} {{ item.unit }}")
         input(type="checkbox", ng-model="item.bought", ng-click="updateItem(item)")
         span
           strong {{ item.title }}

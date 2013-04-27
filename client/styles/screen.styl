@@ -94,20 +94,32 @@ reset-html5()
 #list ul > li > span
   absolute left 3em top default-margin
   right 3.5em
-  padding-right 5em
+  padding-right 7em
   overflow ellipsis
   span.amount
     absolute right 0 top 0
-    padding-left 3em
+    padding-left 5em
     color gray
     width 2em
     overflow ellipsis
     strong
       absolute left
       color black
-      width 3em - (default-padding / 2)
+      width 5em - (default-padding / 2)
       overflow ellipsis
       text-align right
+  
+  @media mobile-horizontal-max
+    font-size .9em
+    margin-top .25em
+
+  @media tablet-min
+    padding-right 10em
+    span.amount
+      padding-left 7em
+      width 4em
+      strong
+        width 7em - (default-padding / 2)
 
 #new-item
   width 100%
