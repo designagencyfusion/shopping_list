@@ -32,6 +32,28 @@ reset-html5()
     @media mobile-horizontal-max
       font-size 1.25em
 
+#new-item
+  width 100%
+  min-height 1em
+  padding 0 0 1em
+  overflow ellipsis
+  font-family "Proxima"
+  font-style italic
+  text-align center
+  color gray
+  span.example
+    text-shadow 1px 1px 0 white
+    color very-light-gray
+    font-size .9em
+  span.results > span
+    padding 0 (default-padding / 2)
+  span.amount
+    height 1em
+    color light-gray
+    strong
+      color turquoise
+      padding 0 (default-padding / 4) 0 0
+
 #list
   background cream
   select
@@ -91,56 +113,35 @@ reset-html5()
         &:active
           background darken(light-red, 10)
 
-#list ul > li > span
-  absolute left 3em top default-margin
-  right 3.5em
-  padding-right 7em
-  overflow ellipsis
-  span.amount
-    absolute right 0 top 0
-    padding-left 5em
-    color gray
-    width 2em
+  ul li > span
+    absolute left 3em top default-margin
+    right 3.5em
+    padding-right 7em
     overflow ellipsis
-    strong
-      absolute left
-      color black
-      width 5em - (default-padding / 2)
-      overflow ellipsis
-      text-align right
-  
-  @media mobile-horizontal-max
-    font-size .9em
-    margin-top .25em
-
-  @media tablet-min
-    padding-right 10em
     span.amount
-      padding-left 7em
-      width 4em
+      absolute right 0 top 0
+      padding-left 5em
+      color gray
+      width 2em
+      overflow ellipsis
       strong
-        width 7em - (default-padding / 2)
+        absolute left
+        color black
+        width 5em - (default-padding / 2)
+        overflow ellipsis
+        text-align right
 
-#new-item
-  width 100%
-  min-height 1em
-  padding 0 0 1em
-  overflow ellipsis
-  font-family "Proxima"
-  font-style italic
-  text-align center
-  color gray
-  span.example
-    text-shadow 1px 1px 0 white
-    color very-light-gray
-  span.results > span
-    padding 0 (default-padding / 2)
-  span.amount
-    height 1em
-    color light-gray
-    strong
-      color turquoise
-      padding 0 (default-padding / 4) 0 0
+    @media mobile-horizontal-max
+      font-size .9em
+      margin-top .25em
+
+    @media tablet-min
+      padding-right 10em
+      span.amount
+        padding-left 7em
+        width 4em
+        strong
+          width 7em - (default-padding / 2)
 
 body:not(.touch)
   #list ul li:hover

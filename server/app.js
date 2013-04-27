@@ -18,7 +18,6 @@ app.configure(function() {
 	app.use(express['static']('client'));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 	mongoose.set('debug', true);
-
 	app.use(express.logger('dev'));
 });
 

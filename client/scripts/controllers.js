@@ -12,9 +12,10 @@ App.controller('ShoppinglistCtrl',
 		});
 
 		$scope.formItem = function() {
+			var match, matches;
 			var string = $scope.newItem.string || '';
 			$scope.newItem.reverse = false;
-			var match, matches;
+
 			// First try "tomatoes 500g" ...
 			match = string.match(/ ([0-9]*)(\s?)([a-zA-Z]*?)$/);
 			if (match) {
@@ -38,6 +39,7 @@ App.controller('ShoppinglistCtrl',
 					$scope.newItem.reverse = true;
 				}
 			}
+
 			if (match && match.length > 1 && (matches && matches.amount)) {
 				// Pick title, amound and unit if available ...
 				$scope.newItem.title = matches.title;
@@ -61,6 +63,7 @@ App.controller('ShoppinglistCtrl',
 				string: '',
 				bought: false
 			});
+
 		};
 
 		$scope.updateItem = function(item) {

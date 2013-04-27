@@ -1,29 +1,32 @@
 // Siili colors
-cream                 = rgb(228, 217, 190)
-light-red             = rgb(243, 124,  93)
-orange                = rgb(247, 136, 060)
-blue                  = rgb(  0,  77, 108)
-turquoise             = rgb( 40, 167, 170)
-light-turquoise       = rgb(176, 219, 217)
+cream                       = rgb(228, 217, 190)
+light-red                   = rgb(243, 124,  93)
+orange                      = rgb(247, 136, 060)
+blue                        = rgb(  0,  77, 108)
+turquoise                   = rgb( 40, 167, 170)
+light-turquoise             = rgb(176, 219, 217)
 
 // Other colors
-light-cream           = rgb(248, 248, 245)
-gray                  = rgb(103, 103, 103)
-light-gray            = rgb(173, 173, 173)
-very-light-gray       = rgb(203, 203, 203)
-extremely-light-gray  = rgb(243, 243, 243)
+light-cream                 = rgb(248, 248, 245)
+gray                        = rgb(103, 103, 103)
+light-gray                  = rgb(173, 173, 173)
+very-light-gray             = rgb(203, 203, 203)
+extremely-light-gray        = rgb(243, 243, 243)
 
 // Default margins
-default-margin      = 1em
-default-padding     = .5em
+default-margin              = 1em
+default-padding             = .5em
 
 // Display width breakpoints
+display-mobile-tiny         =  360px
 display-mobile              =  480px
 display-mobile-horizontal   =  640px
 display-tablet              =  768px
 display-tablet-horizontal   = 1024px
 
-// Simple queries
+// Media query strings
+mobile-min-tiny             = "all and (min-width: " + display-mobile-tiny + ")"
+mobile-max-tiny             = "all and (max-width: " + (display-mobile-tiny - 1px) + ")"
 mobile-min                  = "all and (min-width: " + display-mobile + ")"
 mobile-max                  = "all and (max-width: " + (display-mobile - 1px) + ")"
 mobile-horizontal-min       = "all and (min-width: " + display-mobile-horizontal + ")"

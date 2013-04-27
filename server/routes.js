@@ -1,4 +1,3 @@
-var mongoose = require('mongoose');
 var fs = require('fs');
 var Item = require('./models').item;
 
@@ -45,7 +44,7 @@ exports.init = function(app) {
 		});
 	});
 
-	app['delete']('/api/items/:id', function(req, res) {
+	app.delete('/api/items/:id', function(req, res) {
 		Item.remove({ _id: req.params.id }, function(err, item) {
 			if (err) {
 				res.send(422, err);
