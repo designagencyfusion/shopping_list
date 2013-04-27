@@ -36,12 +36,29 @@ tablet-max                  = "all and (max-width: " + (display-tablet - 1px) + 
 tablet-horizontal-min       = "all and (min-width: " + display-tablet-horizontal + ")"
 tablet-horizontal-max       = "all and (max-width: " + (display-tablet-horizontal - 1px) + ")"
 
+// Fonts
+@font-face
+  font-family "Siili-Icons"
+  font-style normal
+  font-weight normal
+  src url("../fonts/siili_icons-webfont.oet?#iefix") format("embedded-opentype"),\
+      url("../fonts/siili_icons-webfont.ttf") format("truetype"),\
+      url("../fonts/siili_icons-webfont.woff") format("woff"),\
+      url("../fonts/siili_icons-webfont.svg#siili_iconsmedium") format("svg")
+
 // Mixins
+icon(content=null)
+  font-family "Siili-Icons", "Proxima", arial
+  if content
+    content content
+
 button-background(bg-color)
-  background: bg-color
+  background-color bg-color
 
   &:hover:not([disabled]):not(.disabled)
+    background-color lighten(bg-color, 10)
     background linear-gradient(top, lighten(bg-color, 10), bg-color)
 
   &:active:not([disabled]):not(.disabled)
+    background-color darken(bg-color, 10)
     background linear-gradient(top, darken(bg-color, 10), darken(bg-color, 5))

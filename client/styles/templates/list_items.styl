@@ -20,13 +20,13 @@
         -webkit-appearance none
         display inline-block
         position relative
-        width 2em
-        height 2em
-        margin 0 default-margin 0 default-padding
+        width 1em
+        height 1em
+        margin -.15em 0 .5em
         border 0 none
         background transparent
         vertical-align middle
-        font-size 1em
+        font-size 1.25emem
         font-weight bold
         cursor pointer
         &:after
@@ -34,7 +34,7 @@
           absolute top .15em left .15em
           width 1em
           height 1em
-          content "✓"
+          icon "v"
           font-size 1.5em
           line-height 1em
           color transparent
@@ -46,14 +46,14 @@
         bottom 0
         box-sizing border-box
         display block
-        padding .5em .75em
+        padding .5em .4em
         text-decoration none
         color light-cream
         font-size 1.5em
         line-height 1em
         text-align center
         &:before
-          content "x"
+          icon "x"
         &:active
           background darken(light-red, 10)
 
@@ -88,7 +88,10 @@
           width 7em - (default-padding / 2)
 
 body:not(.touch)
+  #list ul li
+    transition background-color 100ms linear
   #list ul li:hover
+    transition background-color 0 linear
     background white
     input:after
       color lighten(cream, 10)
