@@ -1,13 +1,12 @@
 App.controller('ShoppinglistCtrl',
 	function($scope, Item) {
 
+		$scope.sortProperty = 'title';
+		$scope.sortOptions = ['title', 'amount', 'unit'];
+
 		$scope.items = Item.query();
 
 		$scope.inputString = '';
-
-		$scope.sortProperty = 'title';
-
-		$scope.sortOptions = ['title', 'amount', 'unit'];
 
 		$scope.createItem = function(text) {
 			var item = {
@@ -29,11 +28,9 @@ App.controller('ShoppinglistCtrl',
 
 			$scope.inputString = '';
 		};
-		
+
 		$scope.updateItem = function(item) {
-			item.$update(function(item) {
-				console.log('item updated', item);
-			});
+			item.$update();
 		};
 
 		$scope.removeItem = function(item) {
