@@ -17,7 +17,9 @@ html(lang="en", ng-app="Shoppinglist")
     header
       h1 Ostoslista
 
-    include shopping_list
+    article(ng-controller="ShoppinglistCtrl")
+      include templates/create_item
+      include templates/list_items
     br
 
     footer

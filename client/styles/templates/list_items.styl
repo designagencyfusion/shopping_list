@@ -1,0 +1,104 @@
+#list
+  background cream
+  select
+    margin 0
+    width 100%
+  ul
+    margin 0
+    padding 0
+    list-style none
+    li
+      position relative
+      margin 0
+      padding default-padding 0
+      font-family "Proxima"
+      cursor pointer
+      border-top 1px solid light-cream
+
+      input
+        -khtml-appearance none
+        -webkit-appearance none
+        display inline-block
+        position relative
+        width 2em
+        height 2em
+        margin 0 default-margin 0 default-padding
+        border 0 none
+        background transparent
+        vertical-align middle
+        font-size 1em
+        font-weight bold
+        cursor pointer
+        &:after
+          display block
+          absolute top .15em left .15em
+          width 1em
+          height 1em
+          content "✓"
+          font-size 1.5em
+          line-height 1em
+          color transparent
+        &:checked:after
+          color white
+
+      a.delete
+        absolute top right
+        bottom 0
+        box-sizing border-box
+        display block
+        padding .5em .75em
+        text-decoration none
+        color light-cream
+        font-size 1.5em
+        line-height 1em
+        text-align center
+        &:before
+          content "x"
+        &:active
+          background darken(light-red, 10)
+
+  ul li > span
+    absolute left 3em top default-margin
+    right 3.5em
+    padding-right 7em
+    overflow ellipsis
+    span.amount
+      absolute right 0 top 0
+      padding-left 5em
+      color gray
+      width 2em
+      overflow ellipsis
+      strong
+        absolute left
+        color black
+        width 5em - (default-padding / 2)
+        overflow ellipsis
+        text-align right
+
+    @media mobile-horizontal-max
+      font-size .9em
+      margin-top .25em
+
+    @media tablet-min
+      padding-right 10em
+      span.amount
+        padding-left 7em
+        width 4em
+        strong
+          width 7em - (default-padding / 2)
+
+body:not(.touch)
+  #list ul li:hover
+    background white
+    input:after
+      color lighten(cream, 10)
+    input:checked:after
+      color light-turquoise
+    a.delete
+      color light-red
+    input:checked:hover:after
+      color turquoise
+    a.delete:hover
+      background light-red
+      color white
+

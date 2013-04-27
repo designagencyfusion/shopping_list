@@ -1,0 +1,44 @@
+#create-item
+  position relative
+  margin-bottom default-margin
+  input
+    width 100%
+    margin 0
+    padding-right 1.5em
+    font-size 1.5em
+    @media mobile-horizontal-max
+      font-size 1.25em
+  button
+    absolute top right
+    bottom 0
+    box-sizing border-box
+    margin 0
+    width 1.7em
+    padding .25em
+    font-weight bold
+    &:before
+      content "+"
+    @media mobile-horizontal-max
+      font-size 1.25em
+
+#new-item
+  width 100%
+  min-height 1em
+  padding 0 0 1em
+  overflow ellipsis
+  font-family "Proxima"
+  font-style italic
+  text-align center
+  color gray
+  span.example
+    text-shadow 1px 1px 0 white
+    color very-light-gray
+    font-size .9em
+  span.results > span
+    padding 0 (default-padding / 2)
+  span.amount
+    height 1em
+    color light-gray
+    strong
+      color turquoise
+      padding 0 (default-padding / 4) 0 0
