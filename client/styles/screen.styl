@@ -27,6 +27,8 @@ reset-html5()
     width 1.7em
     padding .25em
     font-weight bold
+    &:before
+      content "+"
     @media mobile-horizontal-max
       font-size 1.25em
 
@@ -73,18 +75,6 @@ reset-html5()
         &:checked:after
           color white
 
-      & > span
-        absolute left 3em top default-margin
-        right 3.5em
-        padding-right 5em
-        overflow ellipsis
-        span.amount
-          absolute right 0 top 0
-          color gray
-          strong
-            color black
-            padding-right (default-padding / 2)
-
       a.delete
         absolute top right
         bottom 0
@@ -96,8 +86,43 @@ reset-html5()
         font-size 1.5em
         line-height 1em
         text-align center
+        &:before
+          content "x"
         &:active
           background darken(light-red, 10)
+
+#list ul > li > span
+  absolute left 3em top default-margin
+  right 3.5em
+  padding-right 5em
+  overflow ellipsis
+  span.amount
+    absolute right 0 top 0
+    padding-left 3em
+    color gray
+    width 2em
+    overflow ellipsis
+    strong
+      absolute left
+      color black
+      width 3em - (default-padding / 2)
+      overflow ellipsis
+      text-align right
+
+#new-item
+  width 100%
+  min-height 1em
+  padding 0 1em 1em
+  overflow ellipsis
+  font-family "Proxima"
+  font-style italic
+  color gray
+  span.amount
+    height 1em
+    color light-gray
+    strong
+      color turquoise
+      padding 0 (default-padding / 4) 0 (default-padding / 2)
 
 body:not(.touch)
   #list ul li:hover

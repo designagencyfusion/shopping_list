@@ -6,41 +6,35 @@ App.controller('ShoppinglistCtrl',
 
 		$scope.items = Item.query();
 
-		$scope.inputString = '';
+		$scope.newItem = new Item({
+			string: '',
+			bought: false
+		});
 
-		$scope.createItem = function(text) {
-			var item = {
-				bought: false
-			};
-			var match = text.match(/ ([0-9]*?)((?![0-9]).*)$/);
-
-			// Tomaatti 12kg
-			// Tomaatti mehu tiiviste 12kg
-
-			// Tomaatti 12 kg
-			// Tomaatti mehu 12kg
-			// Kengät kokoa 43 2kpl
-			// Kengät kokoa 43 2 kpl
-
-			// Kengät kokoa 43eur  -> 1kpl
-			// Kengät kokoa 43 eur -> 1kpl
-
-			// / ([0-9]*?)((?![0-9]).*)$/
-
-			if (match && match.length > 2) {
-				item.title = text.replace(match[0], '');
-				item.amount = parseInt(match[1], 10);
-				item.unit = match[2];
+		$scope.formItem = function() {
+			if (!$scope.newItem.string) $scope.newItem.string = '';
+			var match = $scope.newItem.string.match(/ ([0-9]*)(\s?)([a-zA-Z]*?)$/);
+			if (match && match.length > 1 && match[1]) {
+				$scope.newItem.title = $scope.newItem.string.replace(match[0], '');
+				$scope.newItem.amount = parseInt(match[1], 10);
+				$scope.newItem.unit = match[3] ? match[3] : 'kpl';
 			} else {
-				item.title = text;
+				$scope.newItem.title = $scope.newItem.string;
+				$scope.newItem.amount = null;
+				$scope.newItem.unit = null;
 			}
+		};
 
-			var newItem = new Item(item);
-			newItem.$save(function(item) {
+		$scope.createItem = function() {
+
+			$scope.newItem.$save(function(item) {
 				$scope.items.push(item);
 			});
 
-			$scope.inputString = '';
+			$scope.newItem = new Item({
+				string: '',
+				bought: false
+			});
 		};
 
 		$scope.updateItem = function(item) {
@@ -54,7 +48,7 @@ App.controller('ShoppinglistCtrl',
 		};
 
 		$scope.toggleBought = function(item, e) {
-			if (e.target.nodeName == 'INPUT') return;
+			if (e.target.nodeName == 'INPUT' || e.target.nodeName == 'A') return;
 			item.bought = !item.bought;
 			$scope.updateItem(item);
 		};

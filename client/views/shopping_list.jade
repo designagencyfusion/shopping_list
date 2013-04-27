@@ -1,8 +1,13 @@
 article(ng-controller="ShoppinglistCtrl")
-  form(ng-submit="createItem(inputString)")
+  form(ng-submit="createItem()")
     #create-item
-      input.add-item(type="text", ng-model="inputString", required)
-      button.action +
+      input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", placeholder="Tomaatteja 500g...", required)
+      button.action
+  #new-item
+    strong(ng-show="newItem.title") {{ newItem.title }}
+    span.amount(ng-show="newItem.title")
+      strong {{ newItem.amount }}
+      {{ newItem.unit }}
 
   #list
     select(ng-model="sortProperty", ng-options="option for option in sortOptions")
@@ -10,9 +15,9 @@ article(ng-controller="ShoppinglistCtrl")
       li(ng-repeat="item in items | orderBy:sortProperty", ng-click="toggleBought(item, $event)")
         input(type="checkbox", ng-model="item.bought", ng-click="updateItem(item)")
         span
-          strong {{ item.title }}&nbsp;
-          span.amount(ng-hide="!item.amount || !item.unit")
+          strong {{ item.title }}
+          span.amount
             strong {{ item.amount }}
             {{ item.unit }}
-        a.delete(href="", ng-click="removeItem(item)") x
+        a.delete(href="", ng-click="removeItem(item)")
 
