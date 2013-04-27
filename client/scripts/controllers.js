@@ -12,14 +12,40 @@ App.controller('ShoppinglistCtrl',
 		});
 
 		$scope.formItem = function() {
-			if (!$scope.newItem.string) $scope.newItem.string = '';
-			var match = $scope.newItem.string.match(/ ([0-9]*)(\s?)([a-zA-Z]*?)$/);
-			if (match && match.length > 1 && match[1]) {
-				$scope.newItem.title = $scope.newItem.string.replace(match[0], '');
-				$scope.newItem.amount = parseInt(match[1], 10);
-				$scope.newItem.unit = match[3] ? match[3] : 'kpl';
+			var string = $scope.newItem.string || '';
+			$scope.newItem.reverse = false;
+			var match, matches;
+			// First try "tomatoes 500g" ...
+			match = string.match(/ ([0-9]*)(\s?)([a-zA-Z]*?)$/);
+			if (match) {
+				 matches = {
+					amount: match[1],
+					unit: match[3],
+					replace: match[0],
+					title: string.replace(match[0], '')
+				};
+			}
+			// ... and if that doesn't match, try "500g tomatoes".
+			if (!matches || !matches.amount) {
+				match = string.match(/^([0-9]*)(\s?)([a-zA-Z]*?) /);
+				if (match) {
+					matches = {
+						amount: match[1] != '' ? match[1] : null,
+						unit: match[3],
+						replace: match[0],
+						title: string.replace(match[0], '')
+					};
+					$scope.newItem.reverse = true;
+				}
+			}
+			if (match && match.length > 1 && (matches && matches.amount)) {
+				// Pick title, amound and unit if available ...
+				$scope.newItem.title = matches.title;
+				$scope.newItem.amount = parseInt(matches.amount, 10);
+				$scope.newItem.unit = matches.unit || 'kpl';
 			} else {
-				$scope.newItem.title = $scope.newItem.string;
+				// ... and if not add the whole string to the title.
+				$scope.newItem.title = string;
 				$scope.newItem.amount = null;
 				$scope.newItem.unit = null;
 			}

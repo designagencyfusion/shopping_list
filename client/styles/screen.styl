@@ -112,17 +112,23 @@ reset-html5()
 #new-item
   width 100%
   min-height 1em
-  padding 0 1em 1em
+  padding 0 0 1em
   overflow ellipsis
   font-family "Proxima"
   font-style italic
+  text-align center
   color gray
+  span.example
+    text-shadow 1px 1px 0 white
+    color very-light-gray
+  span.results > span
+    padding 0 (default-padding / 2)
   span.amount
     height 1em
     color light-gray
     strong
       color turquoise
-      padding 0 (default-padding / 4) 0 (default-padding / 2)
+      padding 0 (default-padding / 4) 0 0
 
 body:not(.touch)
   #list ul li:hover

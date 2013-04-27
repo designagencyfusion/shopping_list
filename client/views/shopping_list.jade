@@ -1,13 +1,16 @@
 article(ng-controller="ShoppinglistCtrl")
   form(ng-submit="createItem()")
     #create-item
-      input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", placeholder="Tomaatteja 500g...", required)
+      input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required)
       button.action
   #new-item
-    strong(ng-show="newItem.title") {{ newItem.title }}
-    span.amount(ng-show="newItem.title")
-      strong {{ newItem.amount }}
-      {{ newItem.unit }}
+    span.example(ng-hide="newItem.title") Lisää muodossa "tomaatteja 500g"...
+    span.results(ng-show="newItem.title")
+      strong(ng-hide="newItem.reverse") {{ newItem.title }}
+      span.amount
+        strong {{ newItem.amount }}
+        {{ newItem.unit }}
+      strong(ng-show="newItem.reverse") {{ newItem.title }}
 
   #list
     select(ng-model="sortProperty", ng-options="option for option in sortOptions")
