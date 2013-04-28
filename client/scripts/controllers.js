@@ -15,9 +15,6 @@ App.controller('HomeCtrl',
 App.controller('ShoppingListCtrl',
 	function($scope, $location, $routeParams, ShoppingList, Item) {
 
-		$scope.sortProperty = 'title';
-		$scope.sortOptions = ['title', 'amount', 'unit'];
-
 		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
 
 		$scope.items = Item.query({ listId: $routeParams.id });

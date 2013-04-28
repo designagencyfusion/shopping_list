@@ -18,10 +18,11 @@ block content
         strong(ng-show="newItem.reverse") {{ newItem.title }}
 
     #list
-      select(ng-model="sortProperty", ng-options="option for option in sortOptions")
+      button.delete(ng-show="listFilter.bought != 'false'", ng-click="listFilter.bought = 'false'") Piilota ostetut
+      button.action(ng-show="listFilter.bought == 'false'", ng-click="listFilter.bought = null") Näytä kaikki
       ul
         li.placeholder(ng-show="items.length == 0") ...
-        li(ng-repeat="item in items | orderBy:sortProperty",
+        li(ng-repeat="item in items | orderBy:'-created' | filter:listFilter",
           ng-click="toggleBought(item, $event)",
           title="{{ item.title }} - {{ item.amount }} {{ item.unit }}")
 
