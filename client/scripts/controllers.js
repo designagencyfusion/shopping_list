@@ -19,7 +19,7 @@ App.controller('ShoppinglistCtrl',
 			// First try "tomatoes 500g" ...
 			match = string.match(/ ([0-9]*)(\s?)([a-zA-Z]*?)$/);
 			if (match) {
-				 matches = {
+				matches = {
 					amount: match[1],
 					unit: match[3],
 					replace: match[0],
@@ -31,7 +31,7 @@ App.controller('ShoppinglistCtrl',
 				match = string.match(/^([0-9]*)(\s?)([a-zA-Z]*?) /);
 				if (match) {
 					matches = {
-						amount: match[1] != '' ? match[1] : null,
+						amount: match[1] !== '' ? match[1] : null,
 						unit: match[3],
 						replace: match[0],
 						title: string.replace(match[0], '')
