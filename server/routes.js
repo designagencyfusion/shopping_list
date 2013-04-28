@@ -18,6 +18,8 @@ exports.init = function(app) {
 		ShoppingList.findOne({ _id: req.params.listId }, function(err, list) {
 			if (err) {
 				res.send(422, err);
+			} else if (!list){
+				res.send(404);
 			} else {
 				res.json(list);
 			}

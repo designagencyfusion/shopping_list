@@ -9,11 +9,16 @@ body
     font-family "Proxima", arial, sans-serif
 
   header
-    color turquoise
     h1
-      font-size 2.5em
       padding default-margin
+      font-size 2.5em
       font-family "Nexa-Light", helvetica, sans-serif
+      color turquoise
+      a
+        text-decoration none
+        color turquoise
+        &:hover
+          color light-turquoise
 
     @media mobile-horizontal-max
      h1

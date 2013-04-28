@@ -13,7 +13,7 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $routeParams, ShoppingList, Item) {
+	function($scope, $location, $routeParams, ShoppingList, Item) {
 
 		$scope.sortProperty = 'title';
 		$scope.sortOptions = ['title', 'amount', 'unit'];
