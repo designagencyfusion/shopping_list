@@ -16,9 +16,7 @@ exports.init = function(app) {
 
 	app.get('/api/shopping-lists/:listId', function(req, res) {
 		ShoppingList.findOne({ _id: req.params.listId }, function(err, list) {
-			if (err) {
-				res.send(422, err);
-			} else if (!list){
+			if (!list) {
 				res.send(404);
 			} else {
 				res.json(list);
