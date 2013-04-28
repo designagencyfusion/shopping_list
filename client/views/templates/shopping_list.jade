@@ -24,11 +24,12 @@ block content
         li.placeholder(ng-show="items.length == 0") ...
         li(ng-repeat="item in items | orderBy:'-created' | filter:listFilter",
           ng-click="toggleBought(item, $event)",
-          title="{{ item.title }} - {{ item.amount }} {{ item.unit }}")
+          title="{{ item.title }} - {{ item.amount }} {{ item.unit }}",
+          ng-class="{ bought: item.bought }")
 
           input(type="checkbox", ng-model="item.bought", ng-click="updateItem(item)")
           span
-            strong {{ item.title }}
+            strong {{ item.title }}&nbsp;
             span.amount
               strong {{ item.amount }}
               {{ item.unit }}

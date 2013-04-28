@@ -58,6 +58,7 @@ article.shopping-list
     background cream
     & > button
       width 100%
+      font-size 1em
     select
       margin 0
       width 100%
@@ -76,6 +77,9 @@ article.shopping-list
         font-family "Proxima", arial, sans-serif
         cursor pointer
         border-top 1px solid light-cream
+
+        &.bought > span > strong
+          text-decoration line-through
 
         input
           -khtml-appearance none

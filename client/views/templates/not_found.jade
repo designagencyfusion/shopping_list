@@ -1,6 +1,9 @@
 extends layout
+block header
 
 block content
   article.not-found
-    span Ostoslistaa ei löytynyt :(
+    span.sad :(
+    br
+    span.not-found Ostoslistaa ei löytynyt...
     #create-new-shopping-list: a(ng-href="/") Luo uusi ostoslista
