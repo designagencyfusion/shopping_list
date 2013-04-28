@@ -1,0 +1,34 @@
+extends layout
+block header
+  h1 {{ shoppingList.title }}
+
+block content
+  article.shopping-list
+    form(ng-submit="createItem()")
+      #create-item
+        input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required)
+        button.action
+    #new-item
+      span.example(ng-hide="newItem.title") Lisää muodossa "tomaatteja 500g"...
+      span.results(ng-show="newItem.title")
+        strong(ng-hide="newItem.reverse") {{ newItem.title }}
+        span.amount
+          strong {{ newItem.amount }}
+          {{ newItem.unit }}
+        strong(ng-show="newItem.reverse") {{ newItem.title }}
+
+    #list
+      select(ng-model="sortProperty", ng-options="option for option in sortOptions")
+      ul
+        li.placeholder(ng-show="items.length == 0") ...
+        li(ng-repeat="item in items | orderBy:sortProperty",
+          ng-click="toggleBought(item, $event)",
+          title="{{ item.title }} - {{ item.amount }} {{ item.unit }}")
+
+          input(type="checkbox", ng-model="item.bought", ng-click="updateItem(item)")
+          span
+            strong {{ item.title }}
+            span.amount
+              strong {{ item.amount }}
+              {{ item.unit }}
+          a.delete(href="", ng-click="removeItem(item)")

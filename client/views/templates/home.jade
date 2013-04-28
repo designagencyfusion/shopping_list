@@ -1,0 +1,10 @@
+extends layout
+block header
+  h1 Ostoslista
+
+block content
+  article.home
+    form(ng-submit="createShoppingList()")
+      input(type="email", ng-model="creatorEmail", placeholder="Sähköpostiosoite...", required)
+      input(type="text", ng-model="listTitle", placeholder="Ostoslistan nimi...", required)
+      button.action Luo ostoslista

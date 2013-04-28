@@ -1,10 +1,26 @@
-App.controller('ShoppinglistCtrl',
-	function($scope, Item) {
+App.controller('HomeCtrl',
+	function($scope, $location, ShoppingList) {
+
+		$scope.listTitle = '';
+		$scope.creatorEmail = '';
+		$scope.createShoppingList = function() {
+			new ShoppingList({ title: $scope.listTitle, creatorEmail: $scope.creatorEmail }).$save(function(list) {
+				$location.path('/shopping-lists/' + list._id);
+			});
+		};
+
+	}
+);
+
+App.controller('ShoppingListCtrl',
+	function($scope, $routeParams, ShoppingList, Item) {
 
 		$scope.sortProperty = 'title';
 		$scope.sortOptions = ['title', 'amount', 'unit'];
 
-		$scope.items = Item.query();
+		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
+
+		$scope.items = Item.query({ listId: $routeParams.id });
 
 		$scope.newItem = new Item({
 			string: '',
@@ -55,7 +71,7 @@ App.controller('ShoppinglistCtrl',
 
 		$scope.createItem = function() {
 
-			$scope.newItem.$save(function(item) {
+			$scope.newItem.$save({ listId: $routeParams.id }, function(item) {
 				$scope.items.push(item);
 			});
 
@@ -67,11 +83,11 @@ App.controller('ShoppinglistCtrl',
 		};
 
 		$scope.updateItem = function(item) {
-			item.$update();
+			item.$update({ listId: $routeParams.id });
 		};
 
 		$scope.removeItem = function(item) {
-			item.$remove(function() {
+			item.$remove({ id: item._id, listId: $routeParams.id }, function() {
 				$scope.items.splice($scope.items.indexOf(item), 1);
 			});
 		};

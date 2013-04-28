@@ -13,14 +13,4 @@ html(lang="en", ng-app="Shoppinglist")
     script(src="/scripts/controllers.js")
     script(src="/scripts/services.js")
 
-  body
-    header
-      h1 Ostoslista
-
-    article(ng-controller="ShoppinglistCtrl")
-      include templates/create_item
-      include templates/list_items
-    br
-
-    footer
-      p.copy Siili Solutions © 2013
+  body(ng-view)
