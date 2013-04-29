@@ -9,6 +9,10 @@ article.shopping-list
       font-size 1.5em
       @media mobile-horizontal-max
         font-size 1.25em
+      &.ng-invalid.ng-dirty
+        outline 0 none
+      &:focus.ng-invalid
+        outline 1px solid turquoise
     button
       absolute top right
       bottom 0
@@ -45,6 +49,7 @@ article.shopping-list
       font-style normal
       icon "·"
       color very-light-gray
+      line-height .5em
     span.results > span
       padding 0 (default-padding / 2)
     span.amount
@@ -88,21 +93,21 @@ article.shopping-list
           position relative
           width 1em
           height 1em
-          margin -.15em 0 .5em
+          margin 0.25em 0 .1em .5em
           border 0 none
           background transparent
           vertical-align middle
-          font-size 1.25emem
+          font-size 1.25em
           font-weight bold
           cursor pointer
           &:after
             display block
-            absolute top .15em left .2em
+            absolute top left
             width 1em
             height 1em
             icon "v"
             font-size 1.5em
-            line-height 1em
+            line-height .75em
             color transparent
           &:checked:after
             color white
@@ -112,7 +117,7 @@ article.shopping-list
           bottom 0
           box-sizing border-box
           display block
-          padding .5em .4em
+          padding .45em .4em
           text-decoration none
           color light-cream
           font-size 1.5em
