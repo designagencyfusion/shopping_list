@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg>
+<metadata>
+Created by FontForge 20110222 at Mon Apr 29 01:55:53 2013
+ By Orthosie Webmaster
+</metadata>
+<defs>
+<font id="siili_iconsMedium" horiz-adv-x="1000" >
+  <font-face 
+    font-family="siili_iconsMedium"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1000"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="800"
+    descent="-200"
+    x-height="531"
+    bbox="50 0 783 649"
+    underline-thickness="50"
+    underline-position="-100"
+    unicode-range="U+002B-25BC"
+  />
+<missing-glyph horiz-adv-x="500" 
+d="M50 0v533h400v-533h-400zM100 50h300v433h-300v-433z" />
+    <glyph glyph-name=".notdef" horiz-adv-x="500" 
+d="M50 0v533h400v-533h-400zM100 50h300v433h-300v-433z" />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="333" 
+ />
+    <glyph glyph-name="plus" unicode="+" 
+d="M671 368q6 0 10 -4.5t4 -9.5v-44q0 -6 -4 -10t-10 -4h-169v-169q0 -6 -4 -10t-10 -4h-44q-5 0 -9.5 4t-4.5 10v169h-169q-6 0 -10 4t-4 10v44q0 5 4 9.5t10 4.5h169v169q0 6 4.5 10t9.5 4h44q6 0 10 -4t4 -10v-169h169z" />
+    <glyph glyph-name="M" unicode="M" 
+d="M673 232q6 0 10 -4t4 -10v-44q0 -6 -4 -10t-10 -4h-412q-6 0 -10 4.5t-4 9.5v44q0 6 4 10t10 4h412zM673 503q6 0 10 -4t4 -10v-44q0 -5 -4 -9t-10 -4h-412q-6 0 -10 4t-4 9v44q0 6 4 10t10 4h412zM673 369q6 0 10 -4.5t4 -9.5v-44q0 -6 -4 -10t-10 -4h-412q-6 0 -10 4
+t-4 10v44q0 5 4 9.5t10 4.5h412z" />
+    <glyph glyph-name="v" unicode="v" 
+d="M738 496q5 -4 5 -10t-5 -10l-308 -308l-31 -31q-4 -4 -9.5 -4t-9.5 4l-31 31l-155 155q-4 4 -4 9.5t4 9.5l31 31q10 10 20 0l144 -145l299 299q4 4 10 4t10 -4z" />
+    <glyph glyph-name="x" unicode="x" 
+d="M661 188q4 -4 4 -10t-4 -10l-31 -31q-4 -4 -10 -4t-10 4l-144 144l-144 -144q-4 -4 -10 -4t-10 4l-31 31q-4 4 -4 10t4 10l144 144l-144 144q-4 4 -4 10t4 10l31 31q4 4 10 4t10 -4l144 -144l144 144q4 4 10 4t10 -4l31 -31q4 -4 4 -10t-4 -10l-144 -144z" />
+    <glyph glyph-name="copyright" unicode="&#xa9;" horiz-adv-x="933" 
+d="M467.5 649q84.5 0 157.5 -43.5t115.5 -117t42.5 -158t-43 -157t-115.5 -115.5t-157 -43t-158 42.5t-117 115.5t-43.5 157.5t43.5 158t117 117t158 43.5zM610 181q7 8 7 19q0 8 -5 13l-14 11q-6 5 -13 5q-10 0 -16 -7q-16 -18 -35 -27q-29 -14 -61 -14q-42 0 -78 23
+t-54 63q-14 32 -14 69q0 40 18 76.5t52 57.5t75 21q52 0 87 -33l5 -5q6 -6 15 -6t15 6l13 15q6 6 6 14q0 9 -6 15l-5 4q-15 13 -21 17q-28 17 -62 25q-23 5 -46 5q-67 0 -122 -37.5t-77 -100.5q-12 -35 -12 -72q0 -61 31 -114t86 -79q43 -20 91 -20q84 0 140 56z" />
+    <glyph glyph-name="periodcentered" unicode="&#xb7;" 
+d="M472 202q-6 4 -11 0l-144 -105q-1 0 -3 -1q-1 0 -1 4l55 169q2 6 -3 11l-144 104q-2 2 -2 3t3 1l178 1q7 0 9 6l55 169l2 3q2 0 3 -3l55 -169q2 -6 9 -6l178 -1q3 0 3 -1t-2 -3l-144 -104q-5 -5 -3 -11l55 -169q0 -4 -1 -4h-1l-2 1z" />
+    <glyph glyph-name="triagdn" unicode="&#x25bc;" 
+d="M686 431q4 -4 4 -10t-4 -10l-210 -210q-4 -4 -10 -4t-10 4l-31 31l-179 179q-4 4 -4 10t4 10l31 31q4 4 10 4t10 -4l169 -169l169 169q4 4 10 4t10 -4z" />
+  </font>
+</defs></svg>

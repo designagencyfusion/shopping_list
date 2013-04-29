@@ -2,7 +2,7 @@ extends layout
 
 block content
   article.home
-    form(ng-submit="createShoppingList()")
+    form(ng-submit="createShoppingList()", ng-class="{ 'validated': validated }")
       input(type="email", ng-model="creatorEmail", placeholder="Sähköpostiosoite...", required)
       input(type="text", ng-model="listTitle", placeholder="Listan nimi...", required)
-      button.action Luo lista
+      button.action(ng-click="validated = true") Luo lista
