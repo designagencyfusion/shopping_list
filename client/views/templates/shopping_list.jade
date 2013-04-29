@@ -18,10 +18,10 @@ block content
         strong(ng-show="newItem.reverse") {{ newItem.title }}
 
     #list
-      button.delete(ng-show="listFilter.bought != 'false'", ng-click="listFilter.bought = 'false'") Piilota ostetut
-      button.action(ng-show="listFilter.bought == 'false'", ng-click="listFilter.bought = null") Näytä kaikki
+      button.delete(ng-show="items.length > 0 && listFilter.bought != 'false'", ng-click="listFilter.bought = 'false'") Piilota ostetut
+      button.action(ng-show="items.length > 0 && listFilter.bought == 'false'", ng-click="listFilter.bought = null") Näytä kaikki
       ul
-        li.placeholder(ng-show="items.length == 0") ...
+        li.placeholder(ng-show="(items | filter:listFilter).length == 0") ...
         li(ng-repeat="item in items | orderBy:'-created' | filter:listFilter",
           ng-click="toggleBought(item, $event)",
           title="{{ item.title }} - {{ item.amount }} {{ item.unit }}",

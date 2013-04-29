@@ -4,9 +4,11 @@ App.controller('HomeCtrl',
 		$scope.listTitle = '';
 		$scope.creatorEmail = '';
 		$scope.createShoppingList = function() {
-			new ShoppingList({ title: $scope.listTitle, creatorEmail: $scope.creatorEmail }).$save(function(list) {
-				$location.path('/shopping-lists/' + list._id);
-			});
+			if ($scope.listTitle && $scope.creatorEmail) {
+				new ShoppingList({ title: $scope.listTitle, creatorEmail: $scope.creatorEmail }).$save(function(list) {
+					$location.path('/shopping-lists/' + list._id);
+				});
+			}
 		};
 
 	}

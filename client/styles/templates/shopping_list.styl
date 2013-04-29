@@ -75,14 +75,14 @@ article.shopping-list
         margin 0
         padding default-padding 0
         font-family "Proxima", arial, sans-serif
-        cursor pointer
         border-top 1px solid light-cream
+        &:not(.placeholder)
+          cursor pointer
 
         &.bought > span > strong
           text-decoration line-through
 
         input
-          -khtml-appearance none
           -webkit-appearance none
           display inline-block
           position relative
@@ -156,7 +156,7 @@ article.shopping-list
 body:not(.touch) article.shopping-list
   #list ul li
     transition background-color 100ms linear
-  #list ul li:hover
+  #list ul li:not(.placeholder):hover
     transition background-color 0 linear
     background white
     input:after
