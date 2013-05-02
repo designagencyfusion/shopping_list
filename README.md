@@ -18,3 +18,11 @@
 * `mongod` (in a separate terminal window/tab)
 * `npm start` (in a separate terminal window/tab)
 * `open http://localhost:4000`
+
+## Heroku
+
+### Set up Heroku account
+* https://devcenter.heroku.com/articles/quickstart
+
+### Create Heroku application
+* `heroku create`
