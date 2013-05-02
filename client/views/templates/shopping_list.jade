@@ -18,7 +18,7 @@ block content
         strong(ng-show="newItem.reverse") {{ newItem.title }}
 
     #list
-      button.delete(ng-show="items.length > 0 && !listFilter", ng-click="listFilter = { bought: false }") Piilota ostetut
+      button.delete(ng-show="items.length > 0 && !listFilter", ng-click="listFilter = { bought: 'false' }") Piilota ostetut
       button.action(ng-show="items.length > 0 && listFilter", ng-click="listFilter = null") Näytä kaikki
       ul
         li.placeholder(ng-show="(items | filter:listFilter).length == 0") ...

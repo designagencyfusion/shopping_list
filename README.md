@@ -32,3 +32,9 @@
 
 ### Set environment variables
 * `heroku config:set NODE_ENV=production
+
+### Deploy application
+* `git push heroku master`
+
+### Open application in browser
+* `heroku open`
