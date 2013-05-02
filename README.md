@@ -30,11 +30,11 @@
 * `heroku addons:add sendgrid`
 
 ### Set environment variables
-* `heroku config:set NODE_ENV=production
+* `heroku config:set NODE_ENV=production`
 
 ### Deploy application
 * `git push heroku master`
-* `heroku ps:scale web=1`
+* ~~`heroku ps:scale web=1`~~
 
 ### Open application in browser
 * `heroku open`
