@@ -15,6 +15,7 @@
 		"jade"           : "latest",
 		"stylus"         : "latest",
 		"nib"            : "latest",
-		"mongoose"       : "latest"
+		"mongoose"       : "latest",
+		"sendgrid"       : "latest"
 	}
 }

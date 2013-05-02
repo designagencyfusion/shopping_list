@@ -26,7 +26,6 @@
 
 ### Create Heroku application & add necessary addons
 * `heroku create`
-* `heroku ps:scale web=1`
 * `heroku addons:add mongolab`
 * `heroku addons:add sendgrid`
 
@@ -35,6 +34,7 @@
 
 ### Deploy application
 * `git push heroku master`
+* `heroku ps:scale web=1`
 
 ### Open application in browser
 * `heroku open`
