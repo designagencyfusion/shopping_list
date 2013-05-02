@@ -2,7 +2,7 @@ var express  = require('express');
 var http     = require('http');
 var assets   = require('connect-assets');
 var mongoose = require('mongoose');
-var db       = mongoose.connect('mongodb://localhost:27017/shopping_list');
+var db       = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/shopping_list');
 var app      = express();
 
 app.use(assets({ src: 'client' }));

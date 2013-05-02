@@ -24,5 +24,11 @@
 ### Set up Heroku account
 * https://devcenter.heroku.com/articles/quickstart
 
-### Create Heroku application
+### Create Heroku application & add necessary addons
 * `heroku create`
+* `heroku ps:scale web=1`
+* `heroku addons:add mongolab`
+* `heroku addons:add sendgrid`
+
+### Set environment variables
+* `heroku config:set NODE_ENV=production
