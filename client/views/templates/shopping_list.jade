@@ -6,7 +6,7 @@ block content
   article.shopping-list
     form(ng-submit="createItem()")
       #create-item
-        input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required)
+        input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required, autocomplete)
         button.action
     #new-item
       span.example(ng-hide="newItem.title") {{ 'shoppingList.hint' | i18n }}
@@ -35,4 +35,4 @@ block content
               {{ item.unit }}
           a.delete(href="", ng-click="removeItem(item)")
 
-  #create-new-shopping-list: a(ng-href="/") Luo uusi ostoslista
+  #create-new-shopping-list: a(ng-href="/#/") Luo uusi ostoslista
