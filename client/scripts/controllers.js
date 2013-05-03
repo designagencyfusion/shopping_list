@@ -23,18 +23,18 @@ App.controller('ShoppingListCtrl',
 
 		$scope.items = Item.query({ listId: $routeParams.id });
 
-		var timeoutPromise;
-
-		function timer() {
-			$scope.items = Item.query({ listId: $routeParams.id });
-			timeoutPromise = $timeout(timer, 3000);
-		}
-
-		timer();
-
-		$scope.$on('$destroy', function() {
-			$timeout.cancel(timeoutPromise);
-		});
+		// var timeoutPromise;
+		// 
+		// function timer() {
+		// 	$scope.items = Item.query({ listId: $routeParams.id });
+		// 	timeoutPromise = $timeout(timer, 3000);
+		// }
+		// 
+		// timer();
+		// 
+		// $scope.$on('$destroy', function() {
+		// 	$timeout.cancel(timeoutPromise);
+		// });
 
 		$scope.newItem = new Item({
 			string: '',
