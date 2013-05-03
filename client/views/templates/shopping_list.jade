@@ -9,7 +9,7 @@ block content
         input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required)
         button.action
     #new-item
-      span.example(ng-hide="newItem.title") Lisää muodossa "tomaatteja 500g"...
+      span.example(ng-hide="newItem.title") {{ 'shoppingList.hint' | i18n }}
       span.results(ng-show="newItem.title")
         strong(ng-hide="newItem.reverse") {{ newItem.title }}
         span.amount
@@ -18,8 +18,8 @@ block content
         strong(ng-show="newItem.reverse") {{ newItem.title }}
 
     #list
-      button.delete(ng-show="items.length > 0 && !listFilter", ng-click="listFilter = { bought: 'false' }") Piilota ostetut
-      button.action(ng-show="items.length > 0 && listFilter", ng-click="listFilter = null") Näytä kaikki
+      button.delete(ng-show="items.length > 0 && !listFilter", ng-click="listFilter = { bought: 'false' }") {{ 'shoppingList.hideBoughtItems' | i18n }}
+      button.action(ng-show="items.length > 0 && listFilter", ng-click="listFilter = null") {{ 'shoppingList.showAllItems' | i18n }}
       ul
         li.placeholder(ng-show="(items | filter:listFilter).length == 0") ...
         li(ng-repeat="item in items | orderBy:'-created' | filter:listFilter",
