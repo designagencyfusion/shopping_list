@@ -12,6 +12,12 @@ App.config(function($routeProvider, $httpProvider) {
 
 });
 
+App.run(function($rootScope, $locale) {
+	$rootScope.setLocale = function(localeId) {
+		$locale.id = localeId;
+	};
+});
+
 App.factory('ErrorHandlerInterceptor', [
 	'$q', '$window', '$location',
 	function($q, $window, $location) {
