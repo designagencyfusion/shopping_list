@@ -9,7 +9,6 @@ exports.init = function(app) {
 			if (err) {
 				res.send(422, err);
 			} else {
-				/*
 				if (process.env.NODE_ENV == 'production') {
 					var SendGrid = require('sendgrid').SendGrid;
 					var sendgrid = new SendGrid(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
@@ -20,7 +19,6 @@ exports.init = function(app) {
 						text: req.protocol + "://" + req.get('host') + '/#/shopping-lists/' + list._id
 					});
 				}
-				*/
 				res.json(list);
 			}
 		});
