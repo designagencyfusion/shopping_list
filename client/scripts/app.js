@@ -13,21 +13,21 @@ App.config(function($routeProvider, $httpProvider) {
 });
 
 App.factory('ErrorHandlerInterceptor', [
-  '$q', '$window', '$location',
-  function($q, $window, $location) {
-    function success(response) {
-      return response;
-    }
-    function error(response) {
-      if (response.status == 404) {
-        $location.path('/not-found');
-      }
-      return $q.reject(response);
-    }
-    return function(promise) {
-      return promise.then(success, error);
-    };
-  }
+	'$q', '$window', '$location',
+	function($q, $window, $location) {
+		function success(response) {
+			return response;
+		}
+		function error(response) {
+			if (response.status == 404) {
+				$location.path('/not-found');
+			}
+			return $q.reject(response);
+		}
+		return function(promise) {
+			return promise.then(success, error);
+		};
+	}
 ]);
 
 window.onload = function() {
