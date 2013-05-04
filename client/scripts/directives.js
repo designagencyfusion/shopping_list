@@ -1,5 +1,4 @@
-App.directive('autocomplete', [
-	'$timeout',
+App.directive('autocomplete',
 	function($timeout) {
 		return {
 			restrict: 'A',
@@ -30,4 +29,4 @@ App.directive('autocomplete', [
 			}
 		};
 	}
-]);
+);

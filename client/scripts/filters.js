@@ -1,5 +1,4 @@
-App.filter('i18n', [
-	'$locale',
+App.filter('i18n',
 	function($locale) {
 
 		var translations = {
@@ -58,4 +57,4 @@ App.filter('i18n', [
 		};
 
 	}
-]);
+);

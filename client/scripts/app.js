@@ -18,8 +18,7 @@ App.config(function($routeProvider, $httpProvider) {
 // 	};
 // });
 
-App.factory('ErrorHandlerInterceptor', [
-	'$q', '$window', '$location',
+App.factory('ErrorHandlerInterceptor',
 	function($q, $window, $location) {
 		function success(response) {
 			return response;
@@ -34,7 +33,7 @@ App.factory('ErrorHandlerInterceptor', [
 			return promise.then(success, error);
 		};
 	}
-]);
+);
 
 window.onload = function() {
 	if ('ontouchstart' in document) {
