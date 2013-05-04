@@ -19,7 +19,7 @@ App.filter('i18n',
 					'showAllItems': 'Show all items'
 				}
 			},
-			'fi-fi': {
+			'fi': {
 				'title': 'Ostoslista',
 				'defaultUnit': 'kpl',
 				'createNewList': 'Luo uusi lista',
@@ -40,7 +40,7 @@ App.filter('i18n',
 
 		function findByKeyStr(keyStr) {
 			var keys = keyStr.split('.');
-			var match = translations[$locale.id];
+			var match = translations[$locale.id] || translations['en-us'];
 			for (var i = 0; i < keys.length; i++) {
 				if (match.hasOwnProperty(keys[i])) {
 					match = match[keys[i]];

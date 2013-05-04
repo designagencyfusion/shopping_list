@@ -12,11 +12,9 @@ App.config(function($routeProvider, $httpProvider) {
 
 });
 
-// App.run(function($rootScope, $locale) {
-// 	$rootScope.setLocale = function(localeId) {
-// 		$locale.id = localeId;
-// 	};
-// });
+App.run(function($locale) {
+	$locale.id = (document.documentElement.lang || 'en-us').toLowerCase();
+});
 
 App.factory('ErrorHandlerInterceptor',
 	function($q, $window, $location) {
