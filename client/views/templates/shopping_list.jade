@@ -35,4 +35,4 @@ block content
               {{ item.unit }}
           a.delete(href="", ng-click="removeItem(item)")
 
-  #create-new-shopping-list: a(ng-href="/#/") Luo uusi ostoslista
+  #create-new-shopping-list: a(ng-href="/#/") {{ 'createNewList' | i18n }}

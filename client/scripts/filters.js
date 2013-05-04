@@ -4,6 +4,16 @@ App.filter('i18n', [
 
 		var translations = {
 			'en-us': {
+				'title': 'Shopping list',
+				'defaultUnit': 'pcs',
+				'createNewList': 'Create new list',
+				'shoppingListNotFound' : 'Couldn\'t find shopping list...',
+				'copy': 'Siili Solutions © 2013',
+				'home': {
+					'emailPlaceholder': 'Email address...',
+					'namePlaceholder': 'Name of the list...',
+					'createList': 'Create list'
+				},
 				'shoppingList': {
 					'hint': 'Write in form "tomatoes 500g"...',
 					'hideBoughtItems': 'Hide bought items',
@@ -11,6 +21,16 @@ App.filter('i18n', [
 				}
 			},
 			'fi-fi': {
+				'title': 'Ostoslista',
+				'defaultUnit': 'kpl',
+				'createNewList': 'Luo uusi lista',
+				'shoppingListNotFound' : 'Ostoslistaa ei löytynyt...',
+				'copy': 'Siili Solutions © 2013',
+				'home': {
+					'emailPlaceholder': 'Sähköpostiosoite...',
+					'namePlaceholder': 'Listan nimi...',
+					'createList': 'Luo lista'
+				},
 				'shoppingList': {
 					'hint': 'Lisää muodossa "tomaatteja 500g"...',
 					'hideBoughtItems': 'Piilota ostetut',

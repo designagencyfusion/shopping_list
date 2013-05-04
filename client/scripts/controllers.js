@@ -17,21 +17,23 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $location, $timeout, $routeParams, ShoppingList, Item) {
+	function($scope, $location, $timeout, $routeParams, $filter, ShoppingList, Item) {
 
 		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
 
 		$scope.items = Item.query({ listId: $routeParams.id });
 
+		var defaultUnit = $filter('i18n')('defaultUnit');
+
 		// var timeoutPromise;
-		// 
+		//
 		// function timer() {
 		// 	$scope.items = Item.query({ listId: $routeParams.id });
 		// 	timeoutPromise = $timeout(timer, 3000);
 		// }
-		// 
+		//
 		// timer();
-		// 
+		//
 		// $scope.$on('$destroy', function() {
 		// 	$timeout.cancel(timeoutPromise);
 		// });
@@ -74,7 +76,7 @@ App.controller('ShoppingListCtrl',
 				// Pick title, amound and unit if available ...
 				$scope.newItem.title = matches.title;
 				$scope.newItem.amount = parseInt(matches.amount, 10);
-				$scope.newItem.unit = matches.unit || 'kpl';
+				$scope.newItem.unit = matches.unit || defaultUnit;
 			} else {
 				// ... and if not add the whole string to the title.
 				$scope.newItem.title = string;
