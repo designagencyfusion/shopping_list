@@ -9,7 +9,7 @@ block content
         input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required, autocomplete)
         button.action
     #new-item
-      span.example(ng-hide="newItem.title") {{ 'shoppingList.hint' | i18n }}
+      span.example(ng-hide="newItem.title", ng-bind="#{ i18n('shoppingList.hint') }")
       span.results(ng-show="newItem.title")
         strong(ng-hide="newItem.reverse") {{ newItem.title }}
         span.amount
@@ -18,8 +18,8 @@ block content
         strong(ng-show="newItem.reverse") {{ newItem.title }}
 
     #list
-      button.delete(ng-show="items.length > 0 && !listFilter", ng-click="listFilter = { bought: 'false' }") {{ 'shoppingList.hideBoughtItems' | i18n }}
-      button.action(ng-show="items.length > 0 && listFilter", ng-click="listFilter = null") {{ 'shoppingList.showAllItems' | i18n }}
+      button.delete(ng-show="items.length > 0 && !listFilter", ng-click="listFilter = { bought: 'false' }", ng-bind="#{ i18n('shoppingList.hideBoughtItems') }")
+      button.action(ng-show="items.length > 0 && listFilter", ng-click="listFilter = null", ng-bind="#{ i18n('shoppingList.showAllItems') }")
       ul
         li.placeholder(ng-show="(items | filter:listFilter).length == 0") ...
         li(ng-repeat="item in items | orderBy:'-created' | filter:listFilter",
@@ -32,7 +32,7 @@ block content
             strong {{ item.title }}&nbsp;
             span.amount
               strong {{ item.amount }}
-              {{ item.unit }}
+              span(ng-bind="('units.' + item.unit | i18n) || item.unit")
           a.delete(href="", ng-click="removeItem(item)")
 
-  #create-new-shopping-list: a(ng-href="/#/") {{ 'createNewList' | i18n }}
+  #create-new-shopping-list: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")

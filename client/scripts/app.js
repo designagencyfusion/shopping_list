@@ -1,4 +1,4 @@
-window.App = angular.module('Shoppinglist', ['ngResource']);
+window.App = angular.module('Shoppinglist', ['ngResource', 'ngCookies']);
 
 App.config(function($routeProvider, $httpProvider) {
 	$routeProvider
@@ -12,8 +12,11 @@ App.config(function($routeProvider, $httpProvider) {
 
 });
 
-App.run(function($locale) {
-	$locale.id = (document.documentElement.lang || 'en-us').toLowerCase();
+App.run(function($locale, $cookieStore) {
+	$locale.id = $cookieStore.get('preferred-language');
+	if (!$locale.id) {
+		$locale.id = (document.documentElement.lang || 'en-us').toLowerCase();
+	}
 });
 
 App.factory('ErrorHandlerInterceptor',

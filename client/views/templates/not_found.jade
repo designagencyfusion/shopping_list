@@ -5,5 +5,5 @@ block content
   article.not-found
     span.sad :(
     br
-    span.not-found {{ 'shoppingListNotFound' | i18n }}
-  #create-new-shopping-list: a(ng-href="/#/") {{ 'createNewList' | i18n }}
+    span.not-found(ng-bind="#{ i18n('shoppingListNotFound') }")
+  #create-new-shopping-list: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")

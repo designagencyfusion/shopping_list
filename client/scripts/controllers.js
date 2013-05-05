@@ -1,3 +1,21 @@
+App.controller('LocaleCtrl',
+	function($scope, $locale, $cookieStore) {
+		$scope.localeOptions = [
+			{ id: 'en-us', title: 'In English' },
+			{ id: 'fi', title: 'Suomeksi' },
+			{ id: 'jp', title: '日本語で' }
+		];
+		$scope.setLocale = function(id) {
+			$locale.id = id;
+			$cookieStore.put('preferred-language', id);
+		};
+		$scope.$locale = $locale;
+		$scope.$watch('$locale.id', function() {
+			$scope.setLocale($locale.id);
+		});
+	}
+);
+
 App.controller('HomeCtrl',
 	function($scope, $location, ShoppingList) {
 
@@ -17,13 +35,17 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $location, $timeout, $routeParams, $filter, ShoppingList, Item) {
+	function($scope, $location, $timeout, $routeParams, $filter, ShoppingList, Item, Locale, $locale) {
 
 		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
 
 		$scope.items = Item.query({ listId: $routeParams.id });
 
-		var defaultUnit = $filter('i18n')('defaultUnit');
+		var defaultUnit = '';
+		$scope.$locale = $locale;
+		$scope.$watch('$locale.id', function() {
+			defaultUnit = $filter('i18n')('units.pcs');
+		});
 
 		// var timeoutPromise;
 		//
@@ -86,6 +108,15 @@ App.controller('ShoppingListCtrl',
 		};
 
 		$scope.createItem = function() {
+
+			if ($scope.newItem.unit) {
+				var units = Locale.get($locale.id).units;
+				for (key in units) {
+					if (units.hasOwnProperty(key) && units[key] == $scope.newItem.unit ) {
+						$scope.newItem.unit = key;
+					}
+				}
+			}
 
 			$scope.newItem.$save({ listId: $routeParams.id }, function(item) {
 				$scope.items.push(item);

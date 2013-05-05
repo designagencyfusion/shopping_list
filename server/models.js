@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var shoppingListSchema = mongoose.Schema({
 	title:          String,
-	creatorEmail:   String
+	creatorEmail:   String,
+	modified:       Date
 });
 
 var itemSchema = mongoose.Schema({

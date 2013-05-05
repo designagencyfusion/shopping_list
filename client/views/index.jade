@@ -1,9 +1,9 @@
 !!! 5
-html(lang="#{lang}", ng-app="Shoppinglist")
+html(ng-app="Shoppinglist", lang="#{ lang }")
   head
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     meta(charset="utf-8")
-    title Ostoslista
+    title(ng-bind="#{ i18n('title') }") #{ translations.title }
     meta(name="viewport", content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no")
     link(rel="stylesheet", href="/ui-lightness/jquery-ui.css")
     != css('screen')
@@ -11,6 +11,7 @@ html(lang="#{lang}", ng-app="Shoppinglist")
     script(src="/scripts/vendor/jquery-ui.js")
     script(src="/scripts/vendor/angular.js")
     script(src="/scripts/vendor/angular-resource.js")
+    script(src="/scripts/vendor/angular-cookies.js")
     script(src="/scripts/app.js")
     script(src="/scripts/controllers.js")
     script(src="/scripts/services.js")

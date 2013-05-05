@@ -3,6 +3,6 @@ extends layout
 block content
   article.home
     form(ng-submit="createShoppingList()", ng-class="{ 'validated': validated }")
-      input(type="email", ng-model="creatorEmail", placeholder="{{ 'home.emailPlaceholder' | i18n }}", required)
-      input(type="text", ng-model="listTitle", placeholder="{{ 'home.namePlaceholder' | i18n }}", required)
-      button.action(ng-click="validated = true") {{ 'home.createList' | i18n }}
+      input(type="email", ng-model="creatorEmail", placeholder="{{ #{ i18n('home.emailPlaceholder') } }}", required)
+      input(type="text", ng-model="listTitle", placeholder="{{ #{ i18n('home.namePlaceholder') } }}", required)
+      button.action(ng-click="validated = true", ng-bind="#{ i18n('home.createList') }")

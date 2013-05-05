@@ -34,7 +34,21 @@ body
 
   footer
     margin default-margin*2 default-margin default-margin
+    text-shadow 1px 1px 0 white
+    color darken(cream, 5)
+    font-size .9em
+    a
+      &:not(:first-child)
+        margin-left .5em
+        padding-left .5em
+        border-left 1px solid darken(cream, 5)
+      &:not([disabled]):hover
+        cursor pointer
+        text-decoration underline
+        color darken(cream, 8)
+        text-shadow none
+      &[disabled]
+        text-decoration underline
+
     .copy
-      font-size .9em
-      text-shadow 1px 1px 0 white
-      color darken(cream, 5)
+      margin-top default-margin

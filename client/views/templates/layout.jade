@@ -1,9 +1,11 @@
 header
   block header
-    h1 {{ 'title' | i18n }}
+    h1(ng-bind="#{ i18n('title') }")
 
 block content
 br
 
-footer
-  p.copy {{ 'copy' | i18n }}
+footer(ng-controller="LocaleCtrl")
+  a(ng-repeat="locale in localeOptions", ng-click="setLocale(locale.id)", ng-disabled="$locale.id == locale.id", ng-bind="locale.title")
+  br
+  p.copy(ng-bind="#{ i18n('copy') }")

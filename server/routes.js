@@ -1,11 +1,14 @@
 var fs = require('fs');
 var ShoppingList = require('./models').shoppingList;
 var Item         = require('./models').item;
+var translations = require('./translations');
 
 exports.init = function(app) {
 
 	app.post('/api/shopping-lists', function(req, res) {
-		ShoppingList.create(req.body, function(err, list) {
+		var data = req.body;
+		data.modified = new Date();
+		ShoppingList.create(data, function(err, list) {
 			if (err) {
 				res.send(422, err);
 			} else {
@@ -57,11 +60,13 @@ exports.init = function(app) {
 	app.post('/api/shopping-lists/:listId/items', function(req, res) {
 		var data = req.body;
 		data.shoppingListId = req.params.listId;
-		Item.create(req.body, function(err, item) {
+		Item.create(data, function(err, item) {
 			if (err) {
 				res.send(422, err);
 			} else {
-				res.json(item);
+				ShoppingList.findOneAndUpdate({ _id: req.params.listId }, { modified: new Date }, function() {
+					res.json(item);
+				});
 			}
 		});
 	});
@@ -72,7 +77,9 @@ exports.init = function(app) {
 			if (err) {
 				res.send(422, err);
 			} else {
-				res.json(item);
+				ShoppingList.findOneAndUpdate({ _id: req.params.listId }, { modified: new Date }, function() {
+					res.json(item);
+				});
 			}
 		});
 	});
@@ -82,16 +89,60 @@ exports.init = function(app) {
 			if (err) {
 				res.send(422, err);
 			} else {
-				res.json();
+				ShoppingList.findOneAndUpdate({ _id: req.params.listId }, { modified: new Date }, function() {
+					res.json();
+				});
 			}
 		});
+	});
+
+	app.get('/api/locales/:id', function(req, res) {
+		res.json(translations(req.params.id));
 	});
 
 	app.get('*', function(req, res) {
 		var path = req.params[0].replace(/^\//, '').replace(/\.html$/, '.jade') || 'index.jade';
 
+		req.acceptedLanguages.forEach(function(id) {
+			if (!lang) {
+				var languageGroup = id.split('-')[0]
+				switch(languageGroup) {
+					case 'en':
+						lang = 'en-US'
+						break;
+					case 'fi':
+						lang = 'fi'
+						break;
+				}
+			}
+		});
+
+		var lang = lang || 'en-US';
+		function findByKeyStr(keyStr) {
+			var keys = keyStr.split('.');
+			var match = translations(lang);
+			for (var i = 0; i < keys.length; i++) {
+				if (match && match.hasOwnProperty(keys[i])) {
+					match = match[keys[i]];
+					if (typeof match == 'string') {
+						match = match.replace(/"/g, '\\"');
+					}
+				} else {
+					match = null;
+					break;
+				}
+			}
+			return match;
+		};
+
 		if (fs.existsSync(app.get('views') + '/' + path)) {
-			res.render(path, { lang: req.acceptedLanguages[0] || 'en-US' });
+			res.render(path, {
+				lang: lang,
+				translations: translations(lang),
+				i18n: function(key) {
+					return '(\'' + key + '\' | i18n) || \"' + findByKeyStr(key) + '\"';
+				}
+			});
 		} else {
 			res.send(404);
 		}
