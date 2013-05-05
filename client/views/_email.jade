@@ -10,10 +10,11 @@ html
         h1: img(src="#{ addressToService }/images/title-#{ lang.split('-')[0] }.gif", height="147px", width="256px", alt="#{ translations.title }")
 
       tr: td
-        h2 !{ translations.email.hi.replace(/\n/g, '<br/>').toUpperCase() }
+        h2 !{ translations.email.hi.replace(/\n/g, '<br/>') }
         br
         p !{ translations.email.newListCreated.replace(/\n/g, '<br/>') }
         p !{ translations.email.shareInfo.replace(/\n/g, '<br/>') }
+        br
 
       tr: td#start-using
         p !{ translations.email.startUsing.replace(/\n/g, '<br/>') }
@@ -22,6 +23,7 @@ html
         a(href="#{ address }") #{ name }
 
       tr: td
+        br
         p !{ translations.email.thankYous.replace(/\n/g, '<br/>') }
 
       tr: td#disclaimer

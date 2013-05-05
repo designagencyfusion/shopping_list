@@ -32,7 +32,7 @@ module.exports = function(opts, callback) {
 		premailer.prepare({ html: html }, function(err, preMail) {
 			callback({
 				to: opts.creatorEmail,
-				from: 'spam@example.com',
+				from: 'noreply@example.com',
 				subject: translation.email.newShoppingList + ': ' + opts.name,
 				text: text,
 				html: preMail.html

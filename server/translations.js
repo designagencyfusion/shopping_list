@@ -18,7 +18,7 @@ var translations = {
 		'email': {
 			'newShoppingList': 'New shopping list',
 			'hi': 'Your new shopping list',
-			'newListCreated': 'We have created a new shopping list for you! The list private in a way that it is not listed on search engines, but it will be visible to anyone you share the link with.',
+			'newListCreated': 'We have created a new shopping list for you! The list private in the way that it is not listed on search engines, but it will be visible to anyone you share the link with.',
 			'shareInfo': 'Remember that you can easily share the list with your friends by forwarding this email to them!',
 			'linkText': 'Copy this link to your browser to start using the list: ',
 			'startUsing': 'Link to your new list',
@@ -47,12 +47,12 @@ var translations = {
 		'email': {
 			'newShoppingList': 'Uusi ostoslista',
 			'hi': 'Uusi ostoslistasi',
-			'newListCreated': 'Olemme luoneet sinulle uuden ostoslistan! Lista ei ole julkinen siinä mielessä, että se ei näy hakukoneiden tuloksissa, mutta sen pääsevät näkemään kaikki, joille olet linkin siihen jakanut.',
+			'newListCreated': 'Olemme luoneet sinulle uuden ostoslistan! Lista ei ole julkinen siinä mielessä, että se ei näy hakukoneiden tuloksissa, mutta sen pääsevät näkemään kaikki joille olet linkin siihen jakanut.',
 			'shareInfo': 'Muista, että voit jakaa listan vaivattomasti ystäviesi kanssa lähettämällä tämän sähköpostin heille edelleen!',
 			'linkText': 'Kopioi tämä osoite päästäksesi ostoslistaan: ',
 			'startUsing': 'Tässä ostoslistasi linkki',
 			'thankYous': 'Kiitos, että päätitte käyttää palveluamme!\n\nTerveisin,\nSiili Solutions Oyj',
-			'disclaimer': 'Jos et itse ole luonut kyseistä ostoslistaa voit joko ottaa listan silti käyttöösi tai hävittää tämän sähköpostin. Lisää tietoa täällä: '
+			'disclaimer': 'Jos et ole itse luonut kyseistä ostoslistaa voit joko ottaa listan silti käyttöösi tai hävittää tämän sähköpostin. Lisää tietoa palvelusta löydät täällä: '
 		},
 		'units': {
 			'pcs': 'kpl'
@@ -60,8 +60,6 @@ var translations = {
 	},
 	'jp': {
 		'title': 'Shopping list',
-		// 'title': 'ショッピング リスト',
-		// 'title': 'お買い物リスト',
 		'createNewList': '新しいリストを作る',
 		'shoppingListNotFound' : 'ショッピングリストが見つかりません…',
 		'copy': 'Siili Solutions © 2013',
@@ -78,7 +76,7 @@ var translations = {
 		'email': {
 			'newShoppingList': 'New shopping list',
 			'hi': 'Your new shopping list',
-			'newListCreated': 'We have created a new shopping list for you! The list private in a way that it is not listed on search engines, but it will be visible to anyone you share the link with.',
+			'newListCreated': 'We have created a new shopping list for you! The list private in the way that it is not listed on search engines, but it will be visible to anyone you share the link with.',
 			'shareInfo': 'Remember that you can easily share the list with your friends by forwarding this email to them!',
 			'linkText': 'Copy this link to your browser to start using the list: ',
 			'startUsing': 'Link to your new list',
@@ -87,7 +85,6 @@ var translations = {
 		},
 		'units': {
 			'pcs': '個'
-			// 'pcs': 'ヶ'
 		}
 	}
 };
