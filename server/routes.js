@@ -2,6 +2,7 @@ var fs = require('fs');
 var ShoppingList = require('./models').shoppingList;
 var Item         = require('./models').item;
 var translations = require('./translations');
+var createEmail  = require('./email');
 
 exports.init = function(app) {
 
@@ -12,16 +13,21 @@ exports.init = function(app) {
 			if (err) {
 				res.send(422, err);
 			} else {
-				if (process.env.NODE_ENV == 'production') {
-					var SendGrid = require('sendgrid').SendGrid;
-					var sendgrid = new SendGrid(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
-					sendgrid.send({
-						to: list.creatorEmail,
-						from: 'sender@example.com',
-						subject: 'Shopping List: ' + list.title,
-						text: req.protocol + "://" + req.get('host') + '/#/shopping-lists/' + list._id
-					});
-				}
+				createEmail({
+					id: list._id,
+					name: list.title,
+					lang: req.body.lang,
+					creatorEmail: list.creatorEmail,
+					addressToService: req.protocol + "://" + req.get('host') + '/'
+				}, function(email) {
+					if (process.env.NODE_ENV == 'production') {
+						var SendGrid = require('sendgrid').SendGrid;
+						var sendgrid = new SendGrid(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
+						sendgrid.send(email);
+					} else {
+						console.log(email);
+					}
+				});
 				res.json(list);
 			}
 		});
@@ -101,44 +107,45 @@ exports.init = function(app) {
 	});
 
 	app.get('*', function(req, res) {
+
 		var path = req.params[0].replace(/^\//, '').replace(/\.html$/, '.jade') || 'index.jade';
-
-		req.acceptedLanguages.forEach(function(id) {
-			if (!lang) {
-				var languageGroup = id.split('-')[0]
-				switch(languageGroup) {
-					case 'en':
-						lang = 'en-US'
-						break;
-					case 'fi':
-						lang = 'fi'
-						break;
-				}
-			}
-		});
-
-		var lang = lang || 'en-US';
-		function findByKeyStr(keyStr) {
-			var keys = keyStr.split('.');
-			var match = translations(lang);
-			for (var i = 0; i < keys.length; i++) {
-				if (match && match.hasOwnProperty(keys[i])) {
-					match = match[keys[i]];
-					if (typeof match == 'string') {
-						match = match.replace(/"/g, '\\"');
+		if (!path.match(/_email.jade$/) && fs.existsSync(app.get('views') + '/' + path)) {
+			req.acceptedLanguages.forEach(function(id) {
+				if (!lang) {
+					var languageGroup = id.split('-')[0]
+					switch(languageGroup) {
+						case 'en':
+							lang = 'en-US'
+							break;
+						case 'fi':
+							lang = 'fi'
+							break;
 					}
-				} else {
-					match = null;
-					break;
 				}
-			}
-			return match;
-		};
+			});
 
-		if (fs.existsSync(app.get('views') + '/' + path)) {
+			var lang = lang || 'en-US';
+			var translation = translations(lang);
+			function findByKeyStr(keyStr) {
+				var keys = keyStr.split('.');
+				var match = translations(lang);
+				for (var i = 0; i < keys.length; i++) {
+					if (match && match.hasOwnProperty(keys[i])) {
+						match = match[keys[i]];
+						if (typeof match == 'string') {
+							match = match.replace(/"/g, '\\"');
+						}
+					} else {
+						match = null;
+						break;
+					}
+				}
+				return match;
+			};
+
 			res.render(path, {
 				lang: lang,
-				translations: translations(lang),
+				translations: translation,
 				i18n: function(key) {
 					return '(\'' + key + '\' | i18n) || \"' + findByKeyStr(key) + '\"';
 				}

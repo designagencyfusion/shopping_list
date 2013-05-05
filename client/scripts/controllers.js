@@ -1,5 +1,6 @@
 App.controller('LocaleCtrl',
-	function($scope, $locale, $cookieStore) {
+	function($scope, $routeParams, $location, $locale, $cookieStore) {
+
 		$scope.localeOptions = [
 			{ id: 'en-us', title: 'In English' },
 			{ id: 'fi', title: 'Suomeksi' },
@@ -13,11 +14,16 @@ App.controller('LocaleCtrl',
 		$scope.$watch('$locale.id', function() {
 			$scope.setLocale($locale.id);
 		});
+
+		if ($routeParams.langId) {
+			$scope.setLocale($routeParams.langId);
+			$location.path('/');
+		}
 	}
 );
 
 App.controller('HomeCtrl',
-	function($scope, $location, ShoppingList) {
+	function($scope, $location, $locale, $cookieStore, ShoppingList) {
 
 		$scope.listTitle = '';
 		$scope.creatorEmail = '';
@@ -25,7 +31,7 @@ App.controller('HomeCtrl',
 		$scope.createShoppingList = function() {
 			$scope.submit = true;
 			if ($scope.listTitle && $scope.creatorEmail) {
-				new ShoppingList({ title: $scope.listTitle, creatorEmail: $scope.creatorEmail }).$save(function(list) {
+				new ShoppingList({ title: $scope.listTitle, creatorEmail: $scope.creatorEmail, lang: $locale.id }).$save(function(list) {
 					$location.path('/shopping-lists/' + list._id);
 				});
 			}

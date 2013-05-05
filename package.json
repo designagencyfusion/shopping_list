@@ -16,6 +16,7 @@
 		"stylus"         : "latest",
 		"nib"            : "latest",
 		"mongoose"       : "latest",
-		"sendgrid"       : "latest"
+		"sendgrid"       : "latest",
+		"premailer-api"  : "latest"
 	}
 }
