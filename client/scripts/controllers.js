@@ -32,7 +32,7 @@ App.controller('HomeCtrl',
 			$scope.submit = true;
 			if ($scope.listTitle && $scope.creatorEmail) {
 				new ShoppingList({ title: $scope.listTitle, creatorEmail: $scope.creatorEmail, lang: $locale.id }).$save(function(list) {
-					$location.path('/shopping-lists/' + list._id);
+					$location.path('/list-created');
 				});
 			}
 		};

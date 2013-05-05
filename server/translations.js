@@ -4,6 +4,10 @@ var translations = {
 		'defaultUnit': 'pcs',
 		'createNewList': 'Create new list',
 		'shoppingListNotFound' : 'Couldn\'t find shopping list…',
+		'listCreated': {
+			'congrats': 'Congratulations, the list has been created!',
+			'linkSendToMail': 'We\'ve sent you a link to the list to your email.'
+		},
 		'copy': 'Siili Solutions © 2013',
 		'home': {
 			'emailPlaceholder': 'Email address…',
@@ -33,6 +37,10 @@ var translations = {
 		'title': 'Ostoslista',
 		'createNewList': 'Luo uusi lista',
 		'shoppingListNotFound' : 'Ostoslistaa ei löytynyt…',
+		'listCreated': {
+			'congrats': 'Onneksi olkoon, lista on luotu!',
+			'linkSendToMail': 'Saat hetken kuluttua sähköpostiisi linkin uuteen listaasi.'
+		},
 		'copy': 'Siili Solutions © 2013',
 		'home': {
 			'emailPlaceholder': 'Sähköpostiosoite…',
@@ -62,6 +70,10 @@ var translations = {
 		'title': 'Shopping list',
 		'createNewList': '新しいリストを作る',
 		'shoppingListNotFound' : 'ショッピングリストが見つかりません…',
+		'listCreated': {
+			'congrats': 'Congratulations, the list has been created!',
+			'linkSendToMail': 'We\'ve sent you a link to the list to your email.'
+		},
 		'copy': 'Siili Solutions © 2013',
 		'home': {
 			'emailPlaceholder': 'メールアドレス…',

@@ -7,6 +7,7 @@ App.config(function($routeProvider, $httpProvider) {
 		.when('/shopping-lists/:id', { controller: 'ShoppingListCtrl', templateUrl: '/templates/shopping_list.html' })
 		.when('/lang/:langId',       { controller: 'LocaleCtrl',       templateUrl: '/templates/home.html' })
 		.when('/not-found',          {                                 templateUrl: '/templates/not_found.html' })
+		.when('/list-created',       {                                 templateUrl: '/templates/list_created.html' })
 		.otherwise({ redirectTo: '/' });
 
 	$httpProvider.responseInterceptors.push('ErrorHandlerInterceptor');
