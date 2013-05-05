@@ -1,0 +1,50 @@
+@import "nib"
+@import _base
+html, body
+  background light-cream
+h1
+  padding 0
+  font-size 2.5em
+  font-family "Nexa-Light", helvetica, sans-serif
+  color light-cream
+  
+// #title
+//   img
+//     
+
+table
+  margin-bottom 3em
+
+td
+  font-family "Proxima", arial, sans-serif
+  color gray
+h2
+  font-size 1.25em
+  color light-gray
+  font-size 0.85em
+  margin 0
+
+#start-using
+  color light-gray
+
+#link-to-list
+  background white
+  padding default-margin*2 default-margin
+  border-top 1px solid cream
+  border-bottom 1px solid cream
+  font-family Monaco, Consolas, Courier
+
+#disclaimer
+  font-size .9em
+  p:first-child
+    margin default-margin*2 0
+    padding-top default-margin*2
+    border-top 1px solid cream
+  &, a
+    text-shadow 1px 1px 0 white
+    color darken(cream, 5)
+  a:hover
+    cursor pointer
+    text-decoration underline
+    color darken(cream, 8)
+    text-shadow none

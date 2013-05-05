@@ -1,0 +1,32 @@
+!!! html
+html
+  head
+    meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+    title Email
+    | !{ styles }
+  body
+    table(align="center", width="600", border="0", cellpadding="0", cell=spacing="0")
+      tr: td#title
+        h1: img(src="#{ addressToService }/images/title-#{ lang.split('-')[0] }.gif", height="147px", width="256px", alt="#{ translations.title }")
+
+      tr: td
+        h2 !{ translations.email.hi.replace(/\n/g, '<br/>').toUpperCase() }
+        br
+        p !{ translations.email.newListCreated.replace(/\n/g, '<br/>') }
+        p !{ translations.email.shareInfo.replace(/\n/g, '<br/>') }
+
+      tr: td#start-using
+        p !{ translations.email.startUsing.replace(/\n/g, '<br/>') }
+
+      tr: td#link-to-list
+        a(href="#{ address }") #{ name }
+
+      tr: td
+        p !{ translations.email.thankYous.replace(/\n/g, '<br/>') }
+
+      tr: td#disclaimer
+        p
+          | !{ translations.email.disclaimer.replace(/\n/g, '<br/>') }
+          a(href="#{ addressToService }#/lang/#{ lang }") #{ translations.title }
+        p
+          a(href="http://www.siili.fi") #{ translations.copy }
