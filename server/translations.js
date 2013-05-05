@@ -8,7 +8,7 @@ var translations = {
 		'home': {
 			'emailPlaceholder': 'Email address…',
 			'namePlaceholder': 'Name of the list…',
-			'createList': 'Create\' list'
+			'createList': 'Create list'
 		},
 		'shoppingList': {
 			'hint': 'Write in form "tomato 500g"…',
