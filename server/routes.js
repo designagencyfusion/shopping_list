@@ -103,6 +103,7 @@ exports.init = function(app) {
 	});
 
 	app.get('/api/locales/:id', function(req, res) {
+		// require('./items').update();
 		res.json(translations(req.params.id));
 	});
 
@@ -119,6 +120,12 @@ exports.init = function(app) {
 							break;
 						case 'fi':
 							lang = 'fi'
+							break;
+						case 'sv':
+							lang = 'sv'
+							break;
+						case 'jp':
+							lang = 'jp'
 							break;
 					}
 				}

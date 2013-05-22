@@ -4,7 +4,8 @@ App.controller('LocaleCtrl',
 		$scope.localeOptions = [
 			{ id: 'en-us', title: 'In English' },
 			{ id: 'fi', title: 'Suomeksi' },
-			{ id: 'jp', title: '日本語で' }
+			{ id: 'sv', title: 'På Svenska' },
+			{ id: 'jp', title: '日本語' }
 		];
 		$scope.setLocale = function(id) {
 			$locale.id = id;

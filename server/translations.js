@@ -1,7 +1,6 @@
 var translations = {
 	'en-us': {
 		'title': 'Shopping list',
-		'defaultUnit': 'pcs',
 		'createNewList': 'Create new list',
 		'shoppingListNotFound' : 'Couldn\'t find shopping list…',
 		'listCreated': {
@@ -31,6 +30,39 @@ var translations = {
 		},
 		'units': {
 			'pcs': 'pcs'
+		}
+	},
+	'sv': {
+		'title': 'Shoppinglista',
+		'createNewList': 'Skapa ny shoppinglista',
+		'shoppingListNotFound': 'Kan inte hitta shoppinglistan…',
+		'listCreated': {
+			'congrats': 'Grattis, shoppinglistan är nu skapad ',
+			'linkSendToMail': 'Vi har skickat en länk till din e-postadress'
+		},
+		'copy': 'Siili Solutions © 2013',
+		'home': {
+			'emailPlaceholder': 'E-postadress…',
+			'namePlaceholder': 'Namn på shoppinglistan…',
+			'createList': 'Skapa shoppinglista'
+		},
+		'shoppingList': {
+			'hint': 'Skriv i formen "tomater 500g"…',
+			'hideBoughtItems': 'Dölj köpta varor ',
+			'showAllItems': 'Visa alla varor'
+		},
+		'email': {
+			'newShoppingList': 'Ny shoppinglista',
+			'hi': 'Din nya shoppinglista',
+			'newListCreated': 'Vi har skapat en ny shoppinglista för dig! Shoppinglistan är privat till den grad att den inte finns i någon sökmotor men blir tillgänglig för den du delar länken med.',
+			'shareInfo': 'Kom ihåg att du enkelt kan dela din shoppinglista med dina vänner genom att vidarebefordra detta mejl!',
+			'linkText': 'Kopiera den här adressen till din webbläsare för att använda din shoppinglista ',
+			'startUsing': 'Länk till din nya shoppinglista',
+			'thankYous': 'Tack för att du använder dig av våran tjänst!\n\nCheers,\nSiili Solutions Oyj',
+			'disclaimer': 'Om du själv inte skapade shoppinglistan kan du antingen använda shoppinglistan eller kasta det här mejlet. För mer information, se här: '
+		},
+		'units': {
+			'pcs': 'st'
 		}
 	},
 	'fi': {
@@ -102,6 +134,6 @@ var translations = {
 };
 
 module.exports = function(id) {
-	var translation = translations[id] || translations['en-us'];
+	var translation = translations[id.toLowerCase()] || translations['en-us'];
 	return translation;
 };
