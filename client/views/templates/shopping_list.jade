@@ -26,13 +26,6 @@ block content
           ng-click="toggleBought(item, $event)",
           title="{{ item.title }} - {{ item.amount }} {{ item.unit }}",
           ng-class="{ bought: item.bought }")
-
-          input(type="checkbox", ng-model="item.bought", ng-click="updateItem(item)")
-          span
-            strong {{ item.title }}&nbsp;
-            span.amount
-              strong {{ item.amount }}
-              span(ng-bind="('units.' + item.unit | i18n) || item.unit")
-          a.delete(href="", ng-click="removeItem(item)")
+          ng-include(src="'/templates/list_item.html'")
 
   #create-new-shopping-list: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")

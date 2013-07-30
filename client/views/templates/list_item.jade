@@ -1,0 +1,7 @@
+input(type="checkbox", ng-model="item.bought", ng-click="updateItem(item)")
+span.item
+  strong {{ item.title }}&nbsp;
+  span.amount
+    strong {{ item.amount }}
+    span(ng-bind="('units.' + item.unit | i18n) || item.unit")
+a.delete(href="", ng-click="removeItem(item)")
