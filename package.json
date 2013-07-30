@@ -17,6 +17,7 @@
 		"nib"            : "latest",
 		"mongoose"       : "latest",
 		"sendgrid"       : "latest",
-		"premailer-api"  : "latest"
+		"premailer-api"  : "latest",
+		"moment"         : "latest"
 	}
 }

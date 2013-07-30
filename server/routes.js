@@ -1,4 +1,5 @@
 var fs = require('fs');
+var moment = require('moment');
 var ShoppingList = require('./models').shoppingList;
 var Item         = require('./models').item;
 var translations = require('./translations');
@@ -46,7 +47,8 @@ exports.init = function(app) {
 	app.get('/api/shopping-lists/:listId/items', function(req, res) {
 		var query = { shoppingListId: req.params.listId };
 		var archived = req.query.archived;
-		var lastWeek = new Date(Date.now() - (7 * 24 * 60 * 1000)).getTime();
+		var lastWeek = moment().subtract(1, 'week');
+		console.log(lastWeek);
 		if (archived) {
 			query.bought = true;
 		}
@@ -56,11 +58,10 @@ exports.init = function(app) {
 			} else {
 				var results = [];
 				items.forEach(function(item) {
-					var createdAt = new Date(item.created).getTime();
-					var archivedItem = item.bought && createdAt < lastWeek;
-					if (archived && archivedItem) {
+					var oldItem = lastWeek.isBefore(moment(item.created));
+					if (!archived && !oldItem) {
 						results.push(item);
-					} else if (!archivedItem) {
+					} else {
 						results.push(item);
 					}
 				});
