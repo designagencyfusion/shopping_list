@@ -42,7 +42,7 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $location, $timeout, $routeParams, $filter, ShoppingList, Item, Locale, $locale) {
+	function($scope, $location, $timeout, $routeParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
 
 		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
 
@@ -150,6 +150,13 @@ App.controller('ShoppingListCtrl',
 			if (e.target.nodeName == 'INPUT' || e.target.nodeName == 'A') return;
 			item.bought = !item.bought;
 			$scope.updateItem(item);
+		};
+
+		var listFilterCookie = 'list-filter';
+		$scope.listFilter = $cookieStore.get(listFilterCookie);
+		$scope.toggleVisibleItems = function() {
+			$scope.listFilter = $scope.listFilter ? null : { bought: 'false' };
+			$cookieStore.put(listFilterCookie, $scope.listFilter);
 		};
 
 	}
