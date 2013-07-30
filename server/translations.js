@@ -16,7 +16,9 @@ var translations = {
 		'shoppingList': {
 			'hint': 'Write in form "tomato 500g"…',
 			'hideBoughtItems': 'Hide bought items',
-			'showAllItems': 'Show all items'
+			'showAllItems': 'Show all items',
+			'backToList': 'Go back to shopping list',
+			'archives': 'Archives'
 		},
 		'email': {
 			'newShoppingList': 'New shopping list',
@@ -49,7 +51,9 @@ var translations = {
 		'shoppingList': {
 			'hint': 'Skriv i formen "tomater 500g"…',
 			'hideBoughtItems': 'Dölj köpta varor ',
-			'showAllItems': 'Visa alla varor'
+			'showAllItems': 'Visa alla varor',
+			'backToList': '––  Translation missing! ––',
+			'archives': '––  Translation missing! ––'
 		},
 		'email': {
 			'newShoppingList': 'Ny shoppinglista',
@@ -82,7 +86,9 @@ var translations = {
 		'shoppingList': {
 			'hint': 'Lisää muodossa "tomaatti 500g"…',
 			'hideBoughtItems': 'Piilota ostetut',
-			'showAllItems': 'Näytä kaikki'
+			'showAllItems': 'Näytä kaikki',
+			'backToList': 'Takaisin ostoslistaan',
+			'archives': 'Arkisto'
 		},
 		'email': {
 			'newShoppingList': 'Uusi ostoslista',
@@ -115,7 +121,9 @@ var translations = {
 		'shoppingList': {
 			'hint': '書き込み例　"トマト 500g…"',
 			'hideBoughtItems': '買ったアイテムを隠す',
-			'showAllItems': '全てのアイテムを見る'
+			'showAllItems': '全てのアイテムを見る',
+			'backToList': '––  Translation missing! ––',
+			'archives': '––  Translation missing! ––'
 		},
 		'email': {
 			'newShoppingList': 'New shopping list',

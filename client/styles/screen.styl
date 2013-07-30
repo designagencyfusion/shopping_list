@@ -17,12 +17,25 @@ reset-html5()
 
 span.icon
   icon()
+  
+h2
+  padding default-margin
+  font-size 1.8em
+  font-family "Nexa-Light", helvetica, sans-serif
+  color light-gray
 
-#create-new-shopping-list
+#action-links
   margin 2em 0 .5em
   text-align center
   a
     color light-gray
     font-family: "Proxima", arial, sans-serif
+    padding-left: 1em
+    margin-left: 1em
+    border-left : 1px solid cream
+    &:first-child
+      padding-left: 0
+      margin-left: 0
+      border: 0 none
     &:hover
       color orange

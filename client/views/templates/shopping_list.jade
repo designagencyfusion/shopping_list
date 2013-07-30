@@ -20,12 +20,14 @@ block content
     #list
       button.delete(ng-show="items.length > 0 && !listFilter", ng-click="toggleVisibleItems()", ng-bind="#{ i18n('shoppingList.hideBoughtItems') }")
       button.action(ng-show="items.length > 0 && listFilter", ng-click="toggleVisibleItems()", ng-bind="#{ i18n('shoppingList.showAllItems') }")
-      ul
-        li.placeholder(ng-show="(items | filter:listFilter).length == 0") ...
-        li(ng-repeat="item in items | orderBy:'-created' | filter:listFilter",
+      ul.item-list
+        li.placeholder(ng-show="(items | filter:listFilter ).length == 0") ...
+        li(ng-repeat="item in items | filter:activeItem | filter:dateFilter | orderBy:'-created' | filter:listFilter",
           ng-click="toggleBought(item, $event)",
           title="{{ item.title }} - {{ item.amount }} {{ item.unit }}",
           ng-class="{ bought: item.bought }")
           ng-include(src="'/templates/list_item.html'")
 
-  #create-new-shopping-list: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
+  #action-links
+    a(ng-href="{{ home }}/archive", ng-bind="#{ i18n('shoppingList.archives') }")
+    a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")

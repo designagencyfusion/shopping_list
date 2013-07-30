@@ -42,30 +42,18 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $location, $timeout, $routeParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
+	function($scope, $routeParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
 
 		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
 
 		$scope.items = Item.query({ listId: $routeParams.id });
+		$scope.home = '#/shopping-lists/' + $routeParams.id;
 
 		var defaultUnit = '';
 		$scope.$locale = $locale;
 		$scope.$watch('$locale.id', function() {
 			defaultUnit = $filter('i18n')('units.pcs');
 		});
-
-		// var timeoutPromise;
-		//
-		// function timer() {
-		// 	$scope.items = Item.query({ listId: $routeParams.id });
-		// 	timeoutPromise = $timeout(timer, 3000);
-		// }
-		//
-		// timer();
-		//
-		// $scope.$on('$destroy', function() {
-		// 	$timeout.cancel(timeoutPromise);
-		// });
 
 		$scope.newItem = new Item({
 			string: '',
@@ -137,7 +125,9 @@ App.controller('ShoppingListCtrl',
 		};
 
 		$scope.updateItem = function(item) {
-			item.$update({ listId: $routeParams.id });
+			item.$update({ listId: $routeParams.id }, function() {
+				$scope.items = Item.query({ listId: $routeParams.id });
+			});
 		};
 
 		$scope.removeItem = function(item) {
@@ -157,6 +147,35 @@ App.controller('ShoppingListCtrl',
 		$scope.toggleVisibleItems = function() {
 			$scope.listFilter = $scope.listFilter ? null : { bought: 'false' };
 			$cookieStore.put(listFilterCookie, $scope.listFilter);
+		};
+
+	}
+);
+
+App.controller('ArchiveCtrl',
+	function($scope, $routeParams, ShoppingList, Item) {
+
+		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
+
+		$scope.home = '#/shopping-lists/' + $routeParams.id;
+		$scope.items = Item.query({ listId: $routeParams.id, archived: true });
+
+		$scope.updateItem = function(item) {
+			item.$update({ listId: $routeParams.id }, function() {
+				$scope.items = Item.query({ listId: $routeParams.id, archived: true });
+			});
+		};
+
+		$scope.removeItem = function(item) {
+			item.$remove({ id: item._id, listId: $routeParams.id }, function() {
+				$scope.items.splice($scope.items.indexOf(item), 1);
+			});
+		};
+
+		$scope.toggleBought = function(item, e) {
+			if (e.target.nodeName == 'INPUT' || e.target.nodeName == 'A') return;
+			item.bought = !item.bought;
+			$scope.updateItem(item);
 		};
 
 	}

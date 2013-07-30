@@ -3,11 +3,12 @@ window.App = angular.module('Shoppinglist', ['ngResource', 'ngCookies']);
 App.config(function($routeProvider, $httpProvider) {
 	$routeProvider
 
-		.when('/',                   { controller: 'HomeCtrl',         templateUrl: '/templates/home.html' })
-		.when('/shopping-lists/:id', { controller: 'ShoppingListCtrl', templateUrl: '/templates/shopping_list.html' })
-		.when('/lang/:langId',       { controller: 'LocaleCtrl',       templateUrl: '/templates/home.html' })
-		.when('/not-found',          {                                 templateUrl: '/templates/not_found.html' })
-		.when('/list-created',       {                                 templateUrl: '/templates/list_created.html' })
+		.when('/',                           { controller: 'HomeCtrl',         templateUrl: '/templates/home.html' })
+		.when('/shopping-lists/:id',         { controller: 'ShoppingListCtrl', templateUrl: '/templates/shopping_list.html' })
+		.when('/shopping-lists/:id/archive', { controller: 'ArchiveCtrl',      templateUrl: '/templates/archive.html' })
+		.when('/lang/:langId',               { controller: 'LocaleCtrl',       templateUrl: '/templates/home.html' })
+		.when('/not-found',                  {                                 templateUrl: '/templates/not_found.html' })
+		.when('/list-created',               {                                 templateUrl: '/templates/list_created.html' })
 		.otherwise({ redirectTo: '/' });
 
 	$httpProvider.responseInterceptors.push('ErrorHandlerInterceptor');

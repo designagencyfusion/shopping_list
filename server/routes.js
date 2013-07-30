@@ -44,11 +44,27 @@ exports.init = function(app) {
 	});
 
 	app.get('/api/shopping-lists/:listId/items', function(req, res) {
-		Item.find({ shoppingListId: req.params.listId }, function(err, items) {
+		var query = { shoppingListId: req.params.listId };
+		var archived = req.query.archived;
+		var lastWeek = new Date(Date.now() - (7 * 24 * 60 * 1000));
+		if (archived) {
+			query.bought = true;
+		}
+		Item.find(query, function(err, items) {
 			if (err) {
 				res.send(422, err);
 			} else {
-				res.json(items);
+				var results = [];
+				items.forEach(function(item) {
+					var createdAt = new Date(item.created);
+					var archivedItem = item.bought && createdAt < lastWeek;
+					if (archived && archivedItem) {
+						results.push(item);
+					} else if (!archived && !archivedItem) {
+						results.push(item);
+					}
+				});
+				res.json(results);
 			}
 		});
 	});

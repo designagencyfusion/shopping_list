@@ -1,0 +1,16 @@
+extends layout
+block header
+  h1(ng-bind="shoppingList.title + ' – ' + #{ i18n('shoppingList.archives') }")
+
+block content
+  article.shopping-list
+
+    ul.item-list
+      li.placeholder(ng-show="items.length == 0") ...
+      li.bought(ng-repeat="item in items | orderBy:'-created'",
+        ng-click="toggleBought(item, $event)",
+        title="{{ item.title }} - {{ item.amount }} {{ item.unit }}")
+        ng-include(src="'/templates/list_item.html'")
+
+  #action-links
+    a(ng-href="{{ home }}", ng-bind="#{ i18n('shoppingList.backToList') }")
