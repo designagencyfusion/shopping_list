@@ -57,7 +57,7 @@ exports.init = function(app) {
 				var results = [];
 				items.forEach(function(item) {
 					var createdAt = new Date(item.created);
-					var archivedItem = item.bought && createdAt < lastWeek;
+					var archivedItem = item.bought && createdAt > lastWeek;
 					if (archived && archivedItem) {
 						results.push(item);
 					} else if (!archived && !archivedItem) {
