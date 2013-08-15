@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var moment = require('moment');
 
 var shoppingListSchema = mongoose.Schema({
 	title:          String,
@@ -20,6 +21,12 @@ var itemSchema = mongoose.Schema({
 itemSchema.virtual('created').get(function() {
 	var milliseconds = parseInt(this._id.toString().substring(0, 8), 16) * 1000;
 	return new Date(milliseconds);
+});
+
+itemSchema.virtual('archived').get(function() {
+	var threeWeeksAgo = moment().subtract(3, 'week');
+	var oldItem = moment(this.created).isBefore(threeWeeksAgo);
+	return this.bought && oldItem;
 });
 
 module.exports = {

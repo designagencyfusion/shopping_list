@@ -1,5 +1,4 @@
 var fs = require('fs');
-var moment = require('moment');
 var ShoppingList = require('./models').shoppingList;
 var Item         = require('./models').item;
 var translations = require('./translations');
@@ -46,25 +45,21 @@ exports.init = function(app) {
 
 	app.get('/api/shopping-lists/:listId/items', function(req, res) {
 		var query = { shoppingListId: req.params.listId };
-		var archived = req.query.archived;
-		var lastWeek = moment().subtract(1, 'week');
-		console.log(lastWeek);
-		if (archived) {
-			query.bought = true;
-		}
+		var archived = typeof req.query.archived == 'undefined' ? undefined : (req.query.archived == 'true' || req.query.archived === true);
 		Item.find(query, function(err, items) {
 			if (err) {
 				res.send(422, err);
 			} else {
-				var results = [];
-				items.forEach(function(item) {
-					var oldItem = lastWeek.isBefore(moment(item.created));
-					if (!archived && !oldItem) {
-						results.push(item);
-					} else {
-						results.push(item);
-					}
-				});
+				var results = items;
+				if (typeof req.query.archived != 'undefined') {
+					var matchingItems = [];
+					results.forEach(function(item) {
+						if (item.archived === archived) {
+							matchingItems.push(item);
+						}
+					});
+					results = matchingItems;
+				}
 				res.json(results);
 			}
 		});

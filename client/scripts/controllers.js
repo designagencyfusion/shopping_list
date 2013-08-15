@@ -46,7 +46,7 @@ App.controller('ShoppingListCtrl',
 
 		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
 
-		$scope.items = Item.query({ listId: $routeParams.id });
+		$scope.items = Item.query({ listId: $routeParams.id, archived: false });
 		$scope.home = '#/shopping-lists/' + $routeParams.id;
 
 		var defaultUnit = '';
@@ -125,8 +125,10 @@ App.controller('ShoppingListCtrl',
 		};
 
 		$scope.updateItem = function(item) {
-			item.$update({ listId: $routeParams.id }, function() {
-				$scope.items = Item.query({ listId: $routeParams.id });
+			item.$update({ listId: $routeParams.id }, function(item) {
+				if (item.archived) {
+					$scope.items.splice($scope.items.indexOf(item), 1);
+				}
 			});
 		};
 
@@ -162,7 +164,9 @@ App.controller('ArchiveCtrl',
 
 		$scope.updateItem = function(item) {
 			item.$update({ listId: $routeParams.id }, function() {
-				$scope.items = Item.query({ listId: $routeParams.id, archived: true });
+				if (!item.archived) {
+					$scope.items.splice($scope.items.indexOf(item), 1);
+				}
 			});
 		};
 
