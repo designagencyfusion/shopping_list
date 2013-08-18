@@ -53,7 +53,7 @@ var translations = {
 			'hideBoughtItems': 'Dölj köpta varor ',
 			'showAllItems': 'Visa alla varor',
 			'backToList': '––  Translation missing! ––',
-			'archives': '––  Translation missing! ––'
+			'archives': 'Arkiv'
 		},
 		'email': {
 			'newShoppingList': 'Ny shoppinglista',
@@ -122,8 +122,8 @@ var translations = {
 			'hint': '書き込み例　"トマト 500g…"',
 			'hideBoughtItems': '買ったアイテムを隠す',
 			'showAllItems': '全てのアイテムを見る',
-			'backToList': '––  Translation missing! ––',
-			'archives': '––  Translation missing! ––'
+			'backToList': 'リストへ',
+			'archives': 'アーカイブ'
 		},
 		'email': {
 			'newShoppingList': 'New shopping list',

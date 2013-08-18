@@ -21,9 +21,11 @@ exports.init = function(app) {
 					addressToService: req.protocol + "://" + req.get('host') + '/'
 				}, function(email) {
 					if (process.env.NODE_ENV == 'production') {
-						var SendGrid = require('sendgrid').SendGrid;
-						var sendgrid = new SendGrid(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
-						sendgrid.send(email);
+						var sendgrid  = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
+						sendgrid.send(email, function(err, json) {
+							if (err) console.error(err);
+							console.log(json);
+						});
 					} else {
 						console.log(email);
 					}
