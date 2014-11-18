@@ -6,16 +6,11 @@ block content
   article.shopping-list
     form(ng-submit="createItem()")
       #create-item
-        input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required, autocomplete)
+        input.add-item(type="text", ng-model="newItem.string", required, autocomplete)
         button.action
     #new-item
       span.example(ng-hide="newItem.title", ng-bind="#{ i18n('shoppingList.hint') }")
-      span.results(ng-show="newItem.title")
-        strong(ng-hide="newItem.reverse") {{ newItem.title }}
-        span.amount
-          strong {{ newItem.amount }}
-          {{ newItem.unit }}
-        strong(ng-show="newItem.reverse") {{ newItem.title }}
+      sii-suggestions(ng-show="newItem.title", item="newItem")
 
     #list
       button.delete(ng-show="items.length > 0 && !listFilter", ng-click="toggleVisibleItems()", ng-bind="#{ i18n('shoppingList.hideBoughtItems') }")
