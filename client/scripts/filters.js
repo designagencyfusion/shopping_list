@@ -17,9 +17,13 @@ App.filter('i18n',
 			return match;
 		}
 
-		return function(key, replacement) {
+		var i18nFilter = function(key, replacement) {
 			return findByKeyStr(key) || undefined;
 		};
+
+		// TODO: Provide locale ID as model –> stateless filter
+		i18nFilter.$stateful = true;
+		return i18nFilter;
 
 	}
 );
