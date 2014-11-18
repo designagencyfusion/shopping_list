@@ -2,7 +2,7 @@ App.directive('autocomplete',
 	function($timeout) {
 		return {
 			restrict: 'A',
-			link: function(scope, element, attrs) {
+			link: function(scope, element) {
 
 				element.autocomplete({
 					select: function() {
@@ -54,13 +54,13 @@ App.directive('siiSuggestions',
 			templateUrl: '/templates/suggestions.html',
 			replace: true,
 			scope: {
-				item: '=',
-				locale: '='
+				item: '='
 			},
 			link: function(scope) {
 
 				// Suggestion engine
 				function suggest() {
+					console.log('suggest');
 					var defaultUnit = $filter('i18n')('units.pcs');
 					var match, matches;
 					var string = scope.item.string || '';
