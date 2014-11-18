@@ -27,7 +27,8 @@ app.set('views', path.join(__dirname, '../client/views'));
 app.set('view engine', 'jade');
 
 // Serve static files
-app.use(express.static(path.join(__dirname, '../client/')));
+app.use('/scripts', express.static(path.join(__dirname, '../client/scripts')));
+app.use(express.static(path.join(__dirname, '../client/assets')));
 
 // Routes
 require('./routes').init(app);
