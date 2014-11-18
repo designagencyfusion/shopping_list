@@ -1,23 +1,31 @@
 {
-	"name": "shopping-list",
-	"version": "0.0.1",
-	"private": true,
-	"engines": {
-		"node": "0.10.x",
-		"npm": "1.2.x"
-	},
-	"scripts": {
-		"start" : "supervisor --watch server server/app.js"
-	},
-	"dependencies": {
-		"express"        : "latest",
-		"connect-assets" : "latest",
-		"jade"           : "latest",
-		"stylus"         : "latest",
-		"nib"            : "latest",
-		"mongoose"       : "latest",
-		"sendgrid"       : "latest",
-		"premailer-api"  : "latest",
-		"moment"         : "latest"
-	}
+  "name": "shopping-list",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "scripts": {
+    "start": "supervisor --watch server server/app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "connect-assets": "latest",
+    "errorhandler": "^1.2.2",
+    "express": "^4.10.2",
+    "express-session": "^1.9.1",
+    "jade": "^1.7.0",
+    "method-override": "^2.3.0",
+    "moment": "latest",
+    "mongoose": "latest",
+    "morgan": "^1.5.0",
+    "multer": "^0.1.6",
+    "nib": "latest",
+    "premailer-api": "latest",
+    "sendgrid": "latest",
+    "serve-favicon": "^2.1.6",
+    "stylus": "latest",
+    "supervisor": "latest"
+  }
 }

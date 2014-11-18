@@ -125,25 +125,25 @@ exports.init = function(app) {
 
 		var path = req.params[0].replace(/^\//, '').replace(/\.html$/, '.jade') || 'index.jade';
 		if (!path.match(/_email.jade$/) && fs.existsSync(app.get('views') + '/' + path)) {
-			req.acceptedLanguages.forEach(function(id) {
-				if (!lang) {
-					var languageGroup = id.split('-')[0]
-					switch(languageGroup) {
-						case 'en':
-							lang = 'en-US'
-							break;
-						case 'fi':
-							lang = 'fi'
-							break;
-						case 'sv':
-							lang = 'sv'
-							break;
-						case 'jp':
-							lang = 'jp'
-							break;
-					}
-				}
-			});
+			// req.acceptedLanguages.forEach(function(id) {
+			// 	if (!lang) {
+			// 		var languageGroup = id.split('-')[0]
+			// 		switch(languageGroup) {
+			// 			case 'en':
+			// 				lang = 'en-US'
+			// 				break;
+			// 			case 'fi':
+			// 				lang = 'fi'
+			// 				break;
+			// 			case 'sv':
+			// 				lang = 'sv'
+			// 				break;
+			// 			case 'jp':
+			// 				lang = 'jp'
+			// 				break;
+			// 		}
+			// 	}
+			// });
 
 			var lang = lang || 'en-US';
 			var translation = translations(lang);
