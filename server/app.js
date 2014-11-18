@@ -28,6 +28,7 @@ app.set('view engine', 'jade');
 
 // Serve static files
 app.use('/scripts', express.static(path.join(__dirname, '../client/scripts')));
+app.use('/bower', express.static(path.join(__dirname, '../client/bower')));
 app.use(express.static(path.join(__dirname, '../client/assets')));
 
 // Routes
