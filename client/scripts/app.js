@@ -1,4 +1,4 @@
-window.App = angular.module('Shoppinglist', ['ngResource', 'ngCookies']);
+window.App = angular.module('Shoppinglist', ['ngResource', 'ngCookies', 'ngRoute']);
 
 App.config(function($routeProvider, $httpProvider) {
 	$routeProvider
@@ -11,7 +11,7 @@ App.config(function($routeProvider, $httpProvider) {
 		.when('/list-created',               {                                 templateUrl: '/templates/list_created.html' })
 		.otherwise({ redirectTo: '/' });
 
-	$httpProvider.responseInterceptors.push('ErrorHandlerInterceptor');
+	$httpProvider.interceptors.push('ErrorHandlerInterceptor');
 
 });
 
