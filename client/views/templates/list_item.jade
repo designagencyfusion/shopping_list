@@ -4,8 +4,8 @@ li(ng-click="toggle(item, $event)"
 
   input(type="checkbox", ng-model="item.bought", ng-click="update(item)")
   span.item
-    strong {{ item.title }}&nbsp;
+    strong(ng-bind="item.title + ' '")
     span.amount
-      strong {{ item.amount }}
+      strong(ng-bind="item.amount")
       span(ng-bind="('units.' + item.unit | i18n) || item.unit")
   a.delete(href="", ng-click="remove(item)")

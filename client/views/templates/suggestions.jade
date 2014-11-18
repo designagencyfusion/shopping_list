@@ -1,6 +1,6 @@
 span.suggestions
-  strong(ng-hide="item.reverse") {{ item.title }}
+  strong(ng-hide="item.reverse", ng-bind="item.title")
   span.amount
-    strong {{ item.amount }}
-    {{ item.unit }}
-  strong(ng-show="item.reverse") {{ item.title }}
+    strong(ng-bind="item.amount")
+    span(ng-bind="item.unit")
+  strong(ng-show="item.reverse", ng-bind="item.title")
