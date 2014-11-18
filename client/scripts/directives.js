@@ -30,3 +30,19 @@ App.directive('autocomplete',
 		};
 	}
 );
+
+App.directive('siiListItem',
+	function() {
+		return {
+			restrict: 'E',
+			templateUrl: '/templates/list_item.html',
+			replace: true,
+			scope: {
+				item: '=',
+				toggle: '=',
+        update: '=',
+        remove: '='
+			}
+		};
+	}
+);
