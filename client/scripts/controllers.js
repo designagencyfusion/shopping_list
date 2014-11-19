@@ -126,7 +126,7 @@ App.controller('ShoppingListCtrl',
 		};
 
 		$scope.updateItem = function(item) {
-			item.$update({ listId: $routeParams.id }, function(item) {
+			item.$update({ listId: $stateParams.id }, function(item) {
 				if (item.archived) {
 					$scope.items.splice($scope.items.indexOf(item), 1);
 				}
