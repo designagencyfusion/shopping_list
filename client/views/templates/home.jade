@@ -1,5 +1,5 @@
 header
-	h1(ng-bind="#{ i18n('title') }")
+  h1(ng-bind="#{ i18n('title') }")
 article.home
   form(ng-submit="createShoppingList()", ng-class="{ 'validated': validated }")
     input(type="email", ng-model="creatorEmail", placeholder="{{ #{ i18n('home.emailPlaceholder') } }}", required)
