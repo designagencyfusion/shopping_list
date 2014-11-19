@@ -32,7 +32,8 @@ var translations = {
 		},
 		'units': {
 			'pcs': 'pcs'
-		}
+		},
+		'loadingText': 'Loading, please wait...'
 	},
 	'sv': {
 		'title': 'Shoppinglista',
@@ -67,7 +68,8 @@ var translations = {
 		},
 		'units': {
 			'pcs': 'st'
-		}
+		},
+		'loadingText': 'Loading, please wait...'
 	},
 	'fi': {
 		'title': 'Ostoslista',
@@ -102,7 +104,8 @@ var translations = {
 		},
 		'units': {
 			'pcs': 'kpl'
-		}
+		},
+		'loadingText': 'Ladataan, ole hyvä ja odota...'
 	},
 	'jp': {
 		'title': 'Shopping list',
@@ -137,7 +140,8 @@ var translations = {
 		},
 		'units': {
 			'pcs': '個'
-		}
+		},
+		'loadingText': 'Loading, please wait...'
 	}
 };
 

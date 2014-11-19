@@ -36,8 +36,9 @@ App.directive('siiLoadingScreen',
 		return {
 			restrict: 'E',
 			replace: true,
+			transclude: true,
 			template: '<div id="loading-screen" ng-show="loadingScreenShown">' +
-								'  <span>Loading, please wait...</span>' +
+								'  <div ng-transclude></div>' +
 								'</div>',
 			link: function(scope) {
 

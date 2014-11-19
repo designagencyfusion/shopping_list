@@ -20,4 +20,5 @@ html(ng-app="Shoppinglist", lang="#{ lang }")
 
   body
     div(ng-view)
-    sii-loading-screen()
+    sii-loading-screen
+      span(ng-bind="#{ i18n('loadingText') }")
