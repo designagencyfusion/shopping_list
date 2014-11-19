@@ -31,6 +31,32 @@ App.directive('autocomplete',
 	}
 );
 
+App.directive('siiLoadingScreen',
+	function() {
+		return {
+			restrict: 'E',
+			replace: true,
+			template: '<div id="loading-screen" ng-show="loadingScreenShown">' +
+								'  <span>Loading, please wait...</span>' +
+								'</div>',
+			link: function(scope) {
+
+				function hide() {
+					scope.loadingScreenShown = false;
+				}
+				function show() {
+					scope.loadingScreenShown = true;
+				}
+				show();
+
+				scope.$on('$routeChangeStart', show);
+				scope.$on('$routeChangeSuccess', hide);
+				scope.$on('$routeChangeError', hide);
+			}
+		};
+	}
+);
+
 App.directive('siiListItem',
 	function() {
 		return {
@@ -110,3 +136,4 @@ App.directive('siiSuggestions',
 		};
 	}
 );
+

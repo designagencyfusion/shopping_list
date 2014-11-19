@@ -62,7 +62,9 @@ exports.init = function(app) {
 					});
 					results = matchingItems;
 				}
-				res.json(results);
+				setTimeout(function() {
+					res.json(results);
+				}, 0);
 			}
 		});
 	});

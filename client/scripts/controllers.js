@@ -42,11 +42,13 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $routeParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
+	function($scope, $routeParams, $filter, shoppingList, Item, items, Locale, $locale, $cookieStore) {
 
-		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
+		console.log('resolved?');
 
-		$scope.items = Item.query({ listId: $routeParams.id, archived: false });
+		$scope.shoppingList = shoppingList;
+
+		$scope.items = items;
 		$scope.home = '#/shopping-lists/' + $routeParams.id;
 
 		$scope.newItem = new Item({

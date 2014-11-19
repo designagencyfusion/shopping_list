@@ -28,4 +28,6 @@ html(ng-app="Shoppinglist", lang="#{ lang }")
     script(src="/scripts/directives.js")
     script(src="/scripts/filters.js")
 
-  body(ng-view)
+  body
+    div(ng-view)
+    sii-loading-screen()

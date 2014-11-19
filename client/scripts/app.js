@@ -4,7 +4,17 @@ App.config(function($routeProvider, $httpProvider) {
 	$routeProvider
 
 		.when('/',                           { controller: 'HomeCtrl',         templateUrl: '/templates/home.html' })
-		.when('/shopping-lists/:id',         { controller: 'ShoppingListCtrl', templateUrl: '/templates/shopping_list.html' })
+		.when('/shopping-lists/:id',         { controller: 'ShoppingListCtrl', templateUrl: '/templates/shopping_list.html',
+			resolve: {
+				shoppingList: function(ShoppingList, $route) {
+					return ShoppingList.get({ id: $route.current.params.id }).$promise;
+				},
+				items: function(Item, $route) {
+					return Item.query({ listId: $route.current.params.id, archived: false }).$promise;
+				}
+			}
+
+		})
 		.when('/shopping-lists/:id/archive', { controller: 'ArchiveCtrl',      templateUrl: '/templates/archive.html' })
 		.when('/lang/:langId',               { controller: 'LocaleCtrl',       templateUrl: '/templates/home.html' })
 		.when('/not-found',                  {                                 templateUrl: '/templates/not_found.html' })
