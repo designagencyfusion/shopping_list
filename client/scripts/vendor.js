@@ -1,0 +1,10 @@
+//= require ../bower/jquery/jquery.js
+//= require ../bower/jquery-ui/ui/jquery.ui.core.js
+//= require ../bower/jquery-ui/ui/jquery.ui.widget.js
+//= require ../bower/jquery-ui/ui/jquery.ui.menu.js
+//= require ../bower/jquery-ui/ui/jquery.ui.position.js
+//= require ../bower/jquery-ui/ui/jquery.ui.autocomplete.js
+//= require ../bower/angular/angular.js
+//= require ../bower/angular-resource/angular-resource.js
+//= require ../bower/angular-cookies/angular-cookies.js
+//= require ../bower/angular-route/angular-route.js
