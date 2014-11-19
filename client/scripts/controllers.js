@@ -46,7 +46,7 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $stateParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
+	function($scope, $stateParams, $state, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
 
 		'use strict';
 
@@ -158,6 +158,10 @@ App.controller('ShoppingListCtrl',
 			$cookieStore.put(listFilterCookie, $scope.listFilter);
 		};
 
+		$scope.home = function() {
+			console.log($state.current.name);
+			$state.go('home', {referer: $state.current.name});
+		};
 	}
 );
 

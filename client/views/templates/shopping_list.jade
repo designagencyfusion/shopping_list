@@ -27,5 +27,5 @@ article.shopping-list
         ng-include(src="'/templates/list_item.html'")
 
 #action-links
-  a(ng-href="{{ home }}/archive", ng-bind="#{ i18n('shoppingList.archives') }")
-  a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
+  a(ui-sref="shoppingList.archive", ng-bind="#{ i18n('shoppingList.archives') }")
+  a(ng-click="home()", ng-bind="#{ i18n('createNewList') }")

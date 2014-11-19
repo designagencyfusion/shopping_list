@@ -11,4 +11,4 @@ article.shopping-list
       ng-include(src="'/templates/list_item.html'")
 
 #action-links
-  a(ng-href="{{ home }}", ng-bind="#{ i18n('shoppingList.backToList') }")
+  a(ui-sref="home", ng-bind="#{ i18n('shoppingList.backToList') }")
