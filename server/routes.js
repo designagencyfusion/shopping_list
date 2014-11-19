@@ -64,7 +64,7 @@ exports.init = function(app) {
 				}
 				setTimeout(function() {
 					res.json(results);
-				}, 0);
+				}, 1000);
 			}
 		});
 	});
