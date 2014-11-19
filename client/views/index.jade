@@ -30,4 +30,14 @@ html(ng-app="Shoppinglist", lang="#{ lang }")
     script(src="/scripts/directives.js")
     script(src="/scripts/filters.js")
 
-  body(ng-view)
+  body
+
+    div(ui-view)
+
+
+    footer(ng-controller="LocaleCtrl")
+      a(ng-repeat="locale in localeOptions", ng-click="setLocale(locale.id)", ng-disabled="$locale.id == locale.id", ng-bind="locale.title")
+      br
+      p.copy
+        a(href="http://www.siili.fi", target="_blank", ng-bind="#{ i18n('copy') }")
+

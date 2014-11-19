@@ -42,12 +42,13 @@ App.controller('HomeCtrl',
 );
 
 App.controller('ShoppingListCtrl',
-	function($scope, $routeParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
+	function($scope, $stateParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
 
-		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
+		// Use stateParams instead of routeParams
+		$scope.shoppingList = ShoppingList.get({ id: $stateParams.id });
 
-		$scope.items = Item.query({ listId: $routeParams.id, archived: false });
-		$scope.home = '#/shopping-lists/' + $routeParams.id;
+		$scope.items = Item.query({ listId: $stateParams.id, archived: false });
+		$scope.home = '#/shopping-lists/' + $stateParams.id;
 
 		var defaultUnit = '';
 		$scope.$locale = $locale;
@@ -113,7 +114,7 @@ App.controller('ShoppingListCtrl',
 				}
 			}
 
-			$scope.newItem.$save({ listId: $routeParams.id }, function(item) {
+			$scope.newItem.$save({ listId: $stateParams.id }, function(item) {
 				$scope.items.push(item);
 			});
 
@@ -133,7 +134,7 @@ App.controller('ShoppingListCtrl',
 		};
 
 		$scope.removeItem = function(item) {
-			item.$remove({ id: item._id, listId: $routeParams.id }, function() {
+			item.$remove({ id: item._id, listId: $stateParams.id }, function() {
 				$scope.items.splice($scope.items.indexOf(item), 1);
 			});
 		};
@@ -155,15 +156,15 @@ App.controller('ShoppingListCtrl',
 );
 
 App.controller('ArchiveCtrl',
-	function($scope, $routeParams, ShoppingList, Item) {
+	function($scope, $stateParams, ShoppingList, Item) {
 
-		$scope.shoppingList = ShoppingList.get({ id: $routeParams.id });
+		$scope.shoppingList = ShoppingList.get({ id: $stateParams.id });
 
-		$scope.home = '#/shopping-lists/' + $routeParams.id;
-		$scope.items = Item.query({ listId: $routeParams.id, archived: true });
+		$scope.home = '#/shopping-lists/' + $stateParams.id;
+		$scope.items = Item.query({ listId: $stateParams.id, archived: true });
 
 		$scope.updateItem = function(item) {
-			item.$update({ listId: $routeParams.id }, function() {
+			item.$update({ listId: $stateParams.id }, function() {
 				if (!item.archived) {
 					$scope.items.splice($scope.items.indexOf(item), 1);
 				}
@@ -171,7 +172,7 @@ App.controller('ArchiveCtrl',
 		};
 
 		$scope.removeItem = function(item) {
-			item.$remove({ id: item._id, listId: $routeParams.id }, function() {
+			item.$remove({ id: item._id, listId: $stateParams.id }, function() {
 				$scope.items.splice($scope.items.indexOf(item), 1);
 			});
 		};

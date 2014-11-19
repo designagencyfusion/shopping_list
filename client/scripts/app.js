@@ -1,15 +1,47 @@
 window.App = angular.module('Shoppinglist', ['ngResource', 'ngCookies', 'ngRoute', 'ui.router']);
 
-App.config(function($routeProvider, $httpProvider) {
-	$routeProvider
 
-		.when('/',                           { controller: 'HomeCtrl',         templateUrl: '/templates/home.html' })
-		.when('/shopping-lists/:id',         { controller: 'ShoppingListCtrl', templateUrl: '/templates/shopping_list.html' })
-		.when('/shopping-lists/:id/archive', { controller: 'ArchiveCtrl',      templateUrl: '/templates/archive.html' })
-		.when('/lang/:langId',               { controller: 'LocaleCtrl',       templateUrl: '/templates/home.html' })
-		.when('/not-found',                  {                                 templateUrl: '/templates/not_found.html' })
-		.when('/list-created',               {                                 templateUrl: '/templates/list_created.html' })
-		.otherwise({ redirectTo: '/' });
+App.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+    'use strict';
+
+	$urlRouterProvider.otherwise('/home');
+
+	$stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: '/templates/home.html',
+            controller: 'HomeCtrl'
+        })
+
+        // Single shopping-list
+        .state('shoppingList', {
+            url: '/shopping-lists/:id',
+            templateUrl: '/templates/shopping_list.html',
+            controller: 'ShoppingListCtrl'
+        })
+
+        // Shopping list archives
+        .state('shoppingList.archive', {
+            url: '/archive',
+            templateUrl: '/templates/archive.html',
+            controller: 'ArchiveCtrl'
+        })
+
+        .state('lang', {
+            url: '/lang/:langId',
+            templateUrl: '/templates/home.html',
+            controller: 'LocaleCtrl'
+        })
+
+        .state('notFound', {
+            url: '/not-found',
+            templateUrl: '/templates/not_found.html'
+        })
+
+        .state('listCreated', {
+            url: '/list-created',
+            templateUrl: '/templates/list_created.html'
+        })
 
 	$httpProvider.interceptors.push('ErrorHandlerInterceptor');
 

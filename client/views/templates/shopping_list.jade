@@ -1,33 +1,31 @@
-extends layout
-block header
+header
   h1 {{ shoppingList.title }}
 
-block content
-  article.shopping-list
-    form(ng-submit="createItem()")
-      #create-item
-        input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required, autocomplete)
-        button.action
-    #new-item
-      span.example(ng-hide="newItem.title", ng-bind="#{ i18n('shoppingList.hint') }")
-      span.results(ng-show="newItem.title")
-        strong(ng-hide="newItem.reverse") {{ newItem.title }}
-        span.amount
-          strong {{ newItem.amount }}
-          {{ newItem.unit }}
-        strong(ng-show="newItem.reverse") {{ newItem.title }}
+article.shopping-list
+  form(ng-submit="createItem()")
+    #create-item
+      input.add-item(type="text", ng-model="newItem.string", ng-change="formItem()", required, autocomplete)
+      button.action
+  #new-item
+    span.example(ng-hide="newItem.title", ng-bind="#{ i18n('shoppingList.hint') }")
+    span.results(ng-show="newItem.title")
+      strong(ng-hide="newItem.reverse") {{ newItem.title }}
+      span.amount
+        strong {{ newItem.amount }}
+        {{ newItem.unit }}
+      strong(ng-show="newItem.reverse") {{ newItem.title }}
 
-    #list
-      button.delete(ng-show="items.length > 0 && !listFilter", ng-click="toggleVisibleItems()", ng-bind="#{ i18n('shoppingList.hideBoughtItems') }")
-      button.action(ng-show="items.length > 0 && listFilter", ng-click="toggleVisibleItems()", ng-bind="#{ i18n('shoppingList.showAllItems') }")
-      ul.item-list
-        li.placeholder(ng-show="(items | filter:listFilter ).length == 0") ...
-        li(ng-repeat="item in items | filter:activeItem | filter:dateFilter | orderBy:'-created' | filter:listFilter",
-          ng-click="toggleBought(item, $event)",
-          title="{{ item.title }} - {{ item.amount }} {{ item.unit }}",
-          ng-class="{ bought: item.bought }")
-          ng-include(src="'/templates/list_item.html'")
+  #list
+    button.delete(ng-show="items.length > 0 && !listFilter", ng-click="toggleVisibleItems()", ng-bind="#{ i18n('shoppingList.hideBoughtItems') }")
+    button.action(ng-show="items.length > 0 && listFilter", ng-click="toggleVisibleItems()", ng-bind="#{ i18n('shoppingList.showAllItems') }")
+    ul.item-list
+      li.placeholder(ng-show="(items | filter:listFilter ).length == 0") ...
+      li(ng-repeat="item in items | filter:activeItem | filter:dateFilter | orderBy:'-created' | filter:listFilter",
+        ng-click="toggleBought(item, $event)",
+        title="{{ item.title }} - {{ item.amount }} {{ item.unit }}",
+        ng-class="{ bought: item.bought }")
+        ng-include(src="'/templates/list_item.html'")
 
-  #action-links
-    a(ng-href="{{ home }}/archive", ng-bind="#{ i18n('shoppingList.archives') }")
-    a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
+#action-links
+  a(ng-href="{{ home }}/archive", ng-bind="#{ i18n('shoppingList.archives') }")
+  a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
