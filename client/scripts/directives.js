@@ -85,9 +85,9 @@ App.directive('siiSuggestions',
 			},
 			link: function(scope) {
 
-				// Suggestion engine
+				// Placeholder for suggestion engine (modify input result for now)
 				function suggest() {
-					console.log('suggest');
+
 					var defaultUnit = $filter('i18n')('units.pcs');
 					var match, matches;
 					var string = scope.item.string || '';

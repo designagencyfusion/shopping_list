@@ -44,8 +44,6 @@ App.controller('HomeCtrl',
 App.controller('ShoppingListCtrl',
 	function($scope, $routeParams, $filter, shoppingList, Item, items, Locale, $locale, $cookieStore) {
 
-		console.log('resolved?');
-
 		$scope.shoppingList = shoppingList;
 
 		$scope.items = items;
