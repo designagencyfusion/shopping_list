@@ -1,4 +1,4 @@
-window.App = angular.module('Shoppinglist', ['ngResource', 'ngCookies', 'ngRoute', 'ui.router']);
+window.App = angular.module('Shoppinglist', ['ngResource', 'ngCookies', 'ui.router']);
 
 
 App.config(function($stateProvider, $urlRouterProvider, $httpProvider) {

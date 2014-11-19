@@ -1,6 +1,8 @@
 App.controller('LocaleCtrl',
 	function($scope, $stateParams, $location, $locale, $cookieStore) {
 
+		'use strict';
+
 		$scope.localeOptions = [
 			{ id: 'en-us', title: 'In English' },
 			{ id: 'fi', title: 'Suomeksi' },
@@ -26,6 +28,8 @@ App.controller('LocaleCtrl',
 App.controller('HomeCtrl',
 	function($scope, $location, $locale, $cookieStore, ShoppingList) {
 
+		'use strict';
+
 		$scope.listTitle = '';
 		$scope.creatorEmail = '';
 
@@ -43,6 +47,8 @@ App.controller('HomeCtrl',
 
 App.controller('ShoppingListCtrl',
 	function($scope, $stateParams, $filter, ShoppingList, Item, Locale, $locale, $cookieStore) {
+
+		'use strict';
 
 		// Use stateParams instead of routeParams
 		$scope.shoppingList = ShoppingList.get({ id: $stateParams.id });
@@ -157,6 +163,8 @@ App.controller('ShoppingListCtrl',
 
 App.controller('ArchiveCtrl',
 	function($scope, $stateParams, ShoppingList, Item) {
+
+		'use strict';
 
 		$scope.shoppingList = ShoppingList.get({ id: $stateParams.id });
 

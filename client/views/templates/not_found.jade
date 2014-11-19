@@ -1,9 +1,5 @@
-extends layout
-block header
-
-block content
-  article.not-found
-    span.sad :(
-    br
-    span.not-found(ng-bind="#{ i18n('shoppingListNotFound') }")
-  #action-links: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
+article.not-found
+  span.sad :(
+  br
+  span.not-found(ng-bind="#{ i18n('shoppingListNotFound') }")
+#action-links: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
