@@ -1,11 +1,7 @@
-extends layout
-block header
+article.list-created
+  span.happy :)
+  br
+  p(ng-bind="#{ i18n('listCreated.congrats') }")
+  p(ng-bind="#{ i18n('listCreated.linkSendToMail') }")
 
-block content
-  article.list-created
-    span.happy :)
-    br
-    p(ng-bind="#{ i18n('listCreated.congrats') }")
-    p(ng-bind="#{ i18n('listCreated.linkSendToMail') }")
-
-  #action-links: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
+#action-links: a(ng-href="/#/", ng-bind="#{ i18n('createNewList') }")
