@@ -17,10 +17,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Configure stylus
-app.use(assets({ paths: ['client/styles'], helperContext: app.locals }));
-app.locals.css.root = 'styles';
+// Configure connect assets
+app.use(assets({ paths: ['client/styles', 'client/scripts', 'client/bower'], helperContext: app.locals }));
 assets().environment.getEngines('.styl').configure(function(s) { s.use(nib()); });
+app.locals.css.root = 'styles';
+app.locals.js.root = 'scripts';
 
 // Configure jade and views
 app.set('views', path.join(__dirname, '../client/views'));

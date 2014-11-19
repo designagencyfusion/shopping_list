@@ -5,22 +5,12 @@ html(ng-app="Shoppinglist", lang="#{ lang }")
     meta(charset="utf-8")
     title(ng-bind="#{ i18n('title') }") #{ translations.title }
     meta(name="viewport", content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no")
+    //- Vendor styles
+    != css('vendor')
+    //- Vendor scripts
+    != js('vendor')
     //- Styles
     != css('screen')
-    //- jQuery UI
-    script(src="/bower/jquery/jquery.js")
-    script(src="/bower/jquery-ui/ui/jquery.ui.core.js")
-    script(src="/bower/jquery-ui/ui/jquery.ui.widget.js")
-    script(src="/bower/jquery-ui/ui/jquery.ui.menu.js")
-    script(src="/bower/jquery-ui/ui/jquery.ui.position.js")
-    script(src="/bower/jquery-ui/ui/jquery.ui.autocomplete.js")
-    link(rel="stylesheet", href="/bower/jquery-ui/themes/ui-lightness/jquery-ui.css")
-    link(rel="stylesheet", href="/bower/jquery-ui/themes/ui-lightness/jquery.ui.theme.css")
-    //- Angular
-    script(src="/bower/angular/angular.js")
-    script(src="/bower/angular-resource/angular-resource.js")
-    script(src="/bower/angular-cookies/angular-cookies.js")
-    script(src="/bower/angular-route/angular-route.js")
     //- App
     script(src="/scripts/app.js")
     script(src="/scripts/controllers.js")
