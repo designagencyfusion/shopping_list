@@ -1,5 +1,5 @@
 App.controller('LocaleCtrl',
-	function($scope, $routeParams, $location, $locale, $cookieStore) {
+	function($scope, $stateParams, $location, $locale, $cookieStore) {
 
 		$scope.localeOptions = [
 			{ id: 'en-us', title: 'In English' },
@@ -16,8 +16,8 @@ App.controller('LocaleCtrl',
 			$scope.setLocale($locale.id);
 		});
 
-		if ($routeParams.langId) {
-			$scope.setLocale($routeParams.langId);
+		if ($stateParams.langId) {
+			$scope.setLocale($stateParams.langId);
 			$location.path('/');
 		}
 	}
