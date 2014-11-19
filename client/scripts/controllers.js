@@ -158,10 +158,6 @@ App.controller('ShoppingListCtrl',
 			$cookieStore.put(listFilterCookie, $scope.listFilter);
 		};
 
-		$scope.home = function() {
-			console.log($state.current.name);
-			$state.go('home', {referer: $state.current.name});
-		};
 	}
 );
 

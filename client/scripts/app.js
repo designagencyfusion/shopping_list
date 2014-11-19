@@ -43,15 +43,24 @@ App.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: '/templates/list_created.html'
         })
 
+        .state('about', {
+            url: '/about',
+            templateUrl: '/templates/about.html'
+        })
+
+
 	$httpProvider.interceptors.push('ErrorHandlerInterceptor');
 
 });
 
-App.run(function($locale, $cookieStore) {
+App.run(function($locale, $cookieStore, $rootScope, $state) {
 	$locale.id = $cookieStore.get('preferred-language');
 	if (!$locale.id) {
 		$locale.id = (document.documentElement.lang || 'en-us').toLowerCase();
 	}
+
+    $rootScope.$state = $state;
+
 });
 
 App.factory('ErrorHandlerInterceptor',

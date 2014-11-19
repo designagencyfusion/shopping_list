@@ -28,4 +28,4 @@ article.shopping-list
 
 #action-links
   a(ui-sref="shoppingList.archive", ng-bind="#{ i18n('shoppingList.archives') }")
-  a(ng-click="home()", ng-bind="#{ i18n('createNewList') }")
+  a(ng-click="$state.go('home')", ng-bind="#{ i18n('createNewList') }")
